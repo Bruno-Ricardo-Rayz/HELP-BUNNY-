@@ -1,3 +1,75 @@
-[gd_scene format=3 uid="uid://i3wwlkem0ndq"]
+[gd_scene format=4 uid="uid://i3wwlkem0ndq"]
+
+[ext_resource type="Texture2D" uid="uid://mjbquv8ahj77" path="res://Seasonal Tilesets/Seasonal Tilesets/1 - Grassland/Terrain (16 x 16).png" id="1_ejl1k"]
+[ext_resource type="PackedScene" uid="uid://58vd55nbw05v" path="res://Player.tscn" id="2_ysnjr"]
+[ext_resource type="PackedScene" uid="uid://dnx8x3ilxhgy5" path="res://obstacle.tscn" id="3_ysnjr"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rjm81"]
+texture = ExtResource("1_ejl1k")
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+11:1/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+11:2/0 = 0
+1:3/0 = 0
+1:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:3/0 = 0
+2:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+3:3/0 = 0
+3:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+4:3/0 = 0
+4:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+5:3/0 = 0
+5:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+6:3/0 = 0
+6:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+7:3/0 = 0
+7:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+9:3/0 = 0
+10:3/0 = 0
+11:3/0 = 0
+12:3/0 = 0
+13:3/0 = 0
+15:3/0 = 0
+1:4/0 = 0
+1:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:4/0 = 0
+2:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+3:4/0 = 0
+3:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+4:4/0 = 0
+4:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+5:4/0 = 0
+5:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+6:4/0 = 0
+6:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+7:4/0 = 0
+7:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+11:4/0 = 0
+3:5/0 = 0
+4:5/0 = 0
+5:5/0 = 0
+11:5/0 = 0
+3:6/0 = 0
+4:6/0 = 0
+5:6/0 = 0
+4:8/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_ebum8"]
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_rjm81")
 
 [node name="LEVEL 1" type="Node2D" unique_id=1248094348]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=770343848]
+tile_map_data = PackedByteArray("AAD9/wEAAAABAAMAAAD+/wEAAAABAAMAAAD//wEAAAABAAMAAAAAAAEAAAABAAMAAAABAAEAAAABAAMAAAACAAEAAAABAAMAAAADAAEAAAABAAMAAAAEAAEAAAABAAMAAAAFAAEAAAABAAMAAAAGAAEAAAABAAMAAAAHAAEAAAABAAMAAAAIAAEAAAABAAMAAAAJAAEAAAABAAMAAAAKAAEAAAABAAMAAAALAAEAAAABAAMAAAAMAAEAAAABAAMAAAANAAEAAAABAAMAAAAOAAEAAAABAAMAAAAPAAEAAAABAAMAAAAQAAEAAAABAAMAAAARAAEAAAABAAMAAAASAAEAAAABAAMAAAATAAEAAAABAAMAAAAUAAEAAAABAAMAAAAVAAEAAAABAAMAAAAWAAEAAAABAAMAAAAXAAEAAAABAAMAAAAYAAEAAAABAAMAAAAZAAEAAAABAAMAAAAaAAEAAAABAAMAAAAbAAEAAAABAAMAAAAcAAEAAAABAAMAAAAdAAEAAAABAAMAAAAeAAEAAAABAAMAAAAfAAEAAAABAAMAAAAgAAEAAAABAAMAAAAgAAAAAAABAAMAAAAhAAAAAAABAAMAAAAiAAAAAAABAAMAAAAjAAAAAAABAAMAAAAkAAAAAAABAAMAAAAlAAAAAAABAAMAAAAmAAAAAAABAAMAAAAnAAAAAAABAAMAAAAoAAAAAAABAAMAAAApAAAAAAABAAMAAAApAP//AAABAAMAAAAqAP//AAABAAMAAAArAP//AAABAAMAAAAsAP//AAABAAMAAAAtAP//AAABAAMAAAAuAP//AAABAAMAAAAvAP//AAABAAMAAAAwAP//AAABAAMAAAAxAP//AAABAAMAAAAxAP7/AAABAAMAAAAyAP7/AAABAAMAAAAzAP7/AAABAAMAAAA0AP7/AAABAAMAAAA1AP7/AAABAAMAAAA2AP7/AAABAAMAAAAgAP//AAABAAMAAAAhAP//AAABAAMAAAAiAP//AAABAAMAAAAjAP//AAABAAMAAAAkAP//AAABAAMAAAAlAP//AAABAAMAAAAmAP//AAABAAMAAAAnAP//AAABAAMAAAAoAP//AAABAAMAAAAkAP7/AAABAAMAAAAlAP7/AAABAAMAAAAmAP7/AAABAAMAAAAnAP7/AAABAAMAAAAoAP7/AAABAAMAAAApAP7/AAABAAMAAAAqAP7/AAABAAMAAAAnAP3/AAABAAMAAAAoAP3/AAABAAMAAAApAP3/AAABAAMAAAAqAP3/AAABAAMAAAAkAP3/AAABAAMAAAAlAP3/AAABAAMAAAAmAP3/AAABAAMAAAArAP3/AAABAAMAAAArAP7/AAABAAMAAAA=")
+tile_set = SubResource("TileSet_ebum8")
+
+[node name="Player" parent="." unique_id=381203669 instance=ExtResource("2_ysnjr")]
+position = Vector2(21, 5)
+
+[node name="Obstacle" parent="." unique_id=1030185075 instance=ExtResource("3_ysnjr")]
+position = Vector2(891, -23)

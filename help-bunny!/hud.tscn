@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://cl5od3hqjypr"]
+
+[node name="HUD" type="CanvasLayer" unique_id=1031871079]
+
+[node name="LabelPalavra" type="Label" parent="." unique_id=693920244]
+offset_left = 577.0
+offset_top = 251.0
+offset_right = 996.0
+offset_bottom = 421.0
+
+[node name="LabelTempo" type="Label" parent="." unique_id=1626465811]
+offset_left = 467.0
+offset_top = 74.0
+offset_right = 661.0
+offset_bottom = 147.0
+
+[node name="LabelFeedback" type="Label" parent="." unique_id=1687159479]
+offset_left = 990.0
+offset_top = 36.0
+offset_right = 1110.0
+offset_bottom = 121.0

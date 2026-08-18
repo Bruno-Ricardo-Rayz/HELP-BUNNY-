@@ -1,21 +1,32 @@
 [gd_scene format=3 uid="uid://cl5od3hqjypr"]
 
-[node name="HUD" type="CanvasLayer" unique_id=1031871079]
+[ext_resource type="Script" uid="uid://cjc0os722jni6" path="res://hud.gd" id="1_37p78"]
+[ext_resource type="FontFile" uid="uid://cf5f4dvxuw0wr" path="res://BoldPixels.ttf" id="2_64ctp"]
 
-[node name="LabelPalavra" type="Label" parent="." unique_id=693920244]
-offset_left = 577.0
-offset_top = 251.0
-offset_right = 996.0
-offset_bottom = 421.0
+[node name="HUD" type="CanvasLayer" unique_id=1031871079]
+script = ExtResource("1_37p78")
 
 [node name="LabelTempo" type="Label" parent="." unique_id=1626465811]
 offset_left = 467.0
 offset_top = 74.0
 offset_right = 661.0
 offset_bottom = 147.0
+theme_override_fonts/font = ExtResource("2_64ctp")
+theme_override_font_sizes/font_size = 32
 
 [node name="LabelFeedback" type="Label" parent="." unique_id=1687159479]
 offset_left = 990.0
 offset_top = 36.0
 offset_right = 1110.0
 offset_bottom = 121.0
+theme_override_fonts/font = ExtResource("2_64ctp")
+theme_override_font_sizes/font_size = 32
+
+[node name="RichTextLabelPalavra" type="RichTextLabel" parent="." unique_id=1450080217]
+offset_top = 20.0
+offset_right = 1152.0
+offset_bottom = 100.0
+theme_override_fonts/normal_font = ExtResource("2_64ctp")
+theme_override_font_sizes/normal_font_size = 32
+bbcode_enabled = true
+horizontal_alignment = 1

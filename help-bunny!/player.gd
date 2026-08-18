@@ -1,9 +1,10 @@
 extends CharacterBody2D
 
-# --- CONFIGURAÇÕES DO COELHO ---
-@export var velocidade_corrida: float = 200.0
-@export var força_pulo_degrau: float = -280.0   # Pulo curto para subir relevo/bloco
-@export var força_pulo_obstaculo: float = -420.0 # Pulo grande (quando acertar a palavra)
+# --- CONFIGURAÇÕES DE MOVIMENTO ---
+@export var velocidade_corrida: float = 150.0
+@export var força_pulo_degrau: float = -200.0     # Pulo curto para subir degraus
+@export var força_pulo_obstaculo: float = -350.0  # Altura do pulo para superar o buraco
+@export var impulso_horizontal_pulo: float = 320.0 # Distância para frente para atravessar o vão
 @export var gravidade: float = 980.0
 
 # --- ESTADOS DO COELHO ---
@@ -15,12 +16,11 @@ var estado_atual: Estado = Estado.CORRENDO
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 
 func _ready():
-	# IMPORTANTE: Permite que o RayCast detecte tanto corpos quanto áreas (Area2D)
 	raycast_obstaculo.collide_with_areas = true
 	raycast_obstaculo.collide_with_bodies = true
 
 func _physics_process(delta):
-	# Aplica gravidade se não estiver no chão
+	# Aplica gravidade
 	if not is_on_floor():
 		velocity.y += gravidade * delta
 
@@ -31,11 +31,11 @@ func _physics_process(delta):
 			if sprite.sprite_frames and sprite.sprite_frames.has_animation("correr"):
 				sprite.play("correr")
 			
-			# 1. Pulo automático de relevo ao bater em blocos normais (Chão)
+			# Pulo automático de degrau pequeno
 			if is_on_wall() and is_on_floor():
 				velocity.y = força_pulo_degrau
 
-			# 2. Detecta OBSTÁCULOS REAIS na Camada 2 (Area2D ou StaticBody2D)
+			# Detecta o Obstáculo na Layer 2
 			if raycast_obstaculo.is_colliding():
 				parar_no_obstaculo()
 
@@ -45,10 +45,13 @@ func _physics_process(delta):
 				sprite.play("parado")
 
 		Estado.PULANDO:
-			velocity.x = velocidade_corrida
+			# Mantém a velocidade impulsionada para frente durante o salto
+			velocity.x = impulso_horizontal_pulo
+			
 			if sprite.sprite_frames and sprite.sprite_frames.has_animation("pular"):
 				sprite.play("pular")
 			
+			# Quando pousar na plataforma oposta, volta a correr normalmente
 			if is_on_floor() and velocity.y >= 0:
 				estado_atual = Estado.CORRENDO
 
@@ -59,9 +62,9 @@ func _physics_process(delta):
 func parar_no_obstaculo():
 	if estado_atual != Estado.PARADO:
 		estado_atual = Estado.PARADO
-		print("Obstáculo real detectado! Coelho parou para digitar.")
 
 func pular_obstaculo_automaticamente():
 	if estado_atual == Estado.PARADO:
 		velocity.y = força_pulo_obstaculo
+		velocity.x = impulso_horizontal_pulo
 		estado_atual = Estado.PULANDO

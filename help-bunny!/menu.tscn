@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://dmdc41y25ikp3"]
+
+[ext_resource type="Script" uid="uid://bd5f0yac5xgne" path="res://menu.gd" id="1_lti8b"]
+
+[node name="Menu" type="Control" unique_id=1802964064]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_lti8b")
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="." unique_id=1107949933]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+autoplay = true
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1912781114]
+modulate = Color(0, 0, 0, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Timer" type="Timer" parent="." unique_id=1136886839]
+wait_time = 30.0
+autostart = true

@@ -5,11 +5,12 @@
 [node name="Menu" type="Control" unique_id=1802964064]
 layout_mode = 3
 anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 1152.0
+offset_bottom = 648.0
 script = ExtResource("1_lti8b")
 
 [node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="." unique_id=1107949933]
+texture_filter = 1
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -17,6 +18,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 autoplay = true
+expand = true
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1912781114]
 modulate = Color(0, 0, 0, 0)

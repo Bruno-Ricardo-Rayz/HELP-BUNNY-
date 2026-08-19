@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bt40n0i520op0"
-path="res://.godot/imported/snow_tileset_preview_3x.png-62dbe06cb52ed4455c06af486319c9ac.ctex"
+uid="uid://8gjupawix102"
+path="res://.godot/imported/snowmen_detailed_preview.png-6e0500aca71d1f064ed825216cb777ad.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://snow_tileset_preview_3x.png"
-dest_files=["res://.godot/imported/snow_tileset_preview_3x.png-62dbe06cb52ed4455c06af486319c9ac.ctex"]
+source_file="res://snowmen_detailed_preview.png"
+dest_files=["res://.godot/imported/snowmen_detailed_preview.png-6e0500aca71d1f064ed825216cb777ad.ctex"]
 
 [params]
 

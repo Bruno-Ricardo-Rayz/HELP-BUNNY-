@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://eoq2a71ojbmo"
-path="res://.godot/imported/Gemini_Generated_Image_6yxofu6yxofu6yxo.jpg-ad450c5b4a036d2670595f4580864f5b.ctex"
+uid="uid://by0t2s3bbceox"
+path="res://.godot/imported/logo do game.png-57ca0ff03d3fd3fdf179cfdc0ea1e865.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Gemini_Generated_Image_6yxofu6yxofu6yxo.jpg"
-dest_files=["res://.godot/imported/Gemini_Generated_Image_6yxofu6yxofu6yxo.jpg-ad450c5b4a036d2670595f4580864f5b.ctex"]
+source_file="res://logo do game.png"
+dest_files=["res://.godot/imported/logo do game.png-57ca0ff03d3fd3fdf179cfdc0ea1e865.ctex"]
 
 [params]
 

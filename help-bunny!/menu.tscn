@@ -13,9 +13,11 @@ file = "res://Video1.ogv"
 
 [node name="Menu" type="Control" unique_id=1802964064]
 layout_mode = 3
-anchors_preset = 0
-offset_right = 1152.0
-offset_bottom = 648.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_lti8b")
 
 [node name="VideoStreamPlayer1" type="VideoStreamPlayer" parent="." unique_id=1107949933]
@@ -138,10 +140,10 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 950.0
+offset_left = 892.0
 offset_top = 480.0
-offset_right = 990.0
-offset_bottom = 520.0
+offset_right = 1028.0
+offset_bottom = 548.0
 grow_horizontal = 0
 grow_vertical = 0
 texture = ExtResource("8_kk3ma")

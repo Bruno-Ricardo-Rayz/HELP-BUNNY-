@@ -2,6 +2,8 @@ extends CanvasLayer
 
 # --- CONFIGURAÇÕES DA FASE ---
 @export var tempo_restante: float = 60.0
+@export var tamanho_minimo_palavra: int = 2
+@export var tamanho_maximo_palavra: int = 5
 var lista_palavras: Array[String] = []
 
 # --- CONTROLE DA PENALIDADE PROGRESSIVA ---
@@ -35,13 +37,17 @@ func carregar_dicionario(caminho_arquivo: String):
 		var arquivo = FileAccess.open(caminho_arquivo, FileAccess.READ)
 		while not arquivo.eof_reached():
 			var linha = arquivo.get_line().strip_edges().to_upper()
-			if linha.length() >= 2:
-				lista_palavras.append(linha)
+			var tamanho = linha.length()
+			
+			if tamanho >= tamanho_minimo_palavra:
+				if tamanho_maximo_palavra <= 0 or tamanho <= tamanho_maximo_palavra:
+					lista_palavras.append(linha)
+					
 		arquivo.close()
-		print("Dicionário carregado com sucesso! Total de palavras: ", lista_palavras.size())
+		print("Dicionário carregado! Palavras de ", tamanho_minimo_palavra, " a ", tamanho_maximo_palavra, " letras: ", lista_palavras.size())
 	else:
 		print("ERRO: Arquivo 'dicionario.txt' não foi encontrado!")
-		lista_palavras = ["COELHO", "CORRER", "PULAR"]
+		lista_palavras = ["BOM", "PULAR", "GATO", "CASA"]
 
 func _process(delta):
 	if tempo_restante > 0:
@@ -54,8 +60,13 @@ func _process(delta):
 	if player and player.estado_atual == player.Estado.PARADO and not ativo:
 		iniciar_desafio_digitacao()
 
-# --- CAPTURA DE TECLAS COM ACENTO ---
+# --- CAPTURA DE TECLAS (ESC E DIGITAÇÃO COM ACENTO) ---
 func _unhandled_input(event):
+	# Pressionar ESC volta imediatamente para o Menu Principal
+	if event.is_action_pressed("ui_cancel"):
+		get_tree().change_scene_to_file("res://menu.tscn")
+		return
+
 	if not ativo:
 		return
 		
@@ -92,7 +103,12 @@ func aplicar_erro():
 func sucesso_palavra():
 	ativo = false
 	richtext_palavra.text = ""
-	exibir_feedback("MUITO BEM!", Color.GREEN)
+	
+	# Bonificação de 3 segundos
+	tempo_restante += 3.0
+	atualizar_ui_tempo()
+	
+	exibir_feedback("+3s! MUITO BEM!", Color.GREEN)
 	
 	penalidade_atual = 5
 	
@@ -118,10 +134,8 @@ func atualizar_ui_palavra():
 		var letra = palavra_atual[i]
 		
 		if i < texto_digitado.length():
-			# Letras já digitadas: Cinza Claro / Semitransparente
 			texto_bbcode += "[bgcolor=#33333388][color=#888888] " + letra + " [/color][/bgcolor] "
 		else:
-			# Letras restantes: Pretas bem visíveis em cima do fundo claro
 			texto_bbcode += "[bgcolor=#DDDDDD][color=#000000] " + letra + " [/color][/bgcolor] "
 			
 	texto_bbcode += "[/center]"

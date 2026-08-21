@@ -1,0 +1,68 @@
+[gd_scene format=3 uid="uid://cd247oou2asga"]
+
+[ext_resource type="Script" uid="uid://bkxb5k38ledb2" path="res://checkpoint.gd" id="1_r6hke"]
+[ext_resource type="Texture2D" uid="uid://d1rem8mjnlxph" path="res://checkponit_carrot-removebg-preview.png" id="2_tnhlw"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s20m7"]
+atlas = ExtResource("2_tnhlw")
+region = Rect2(0, 0, 69, 595)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q25r3"]
+atlas = ExtResource("2_tnhlw")
+region = Rect2(69, 0, 69, 595)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4eun3"]
+atlas = ExtResource("2_tnhlw")
+region = Rect2(138, 0, 69, 595)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7dqgm"]
+atlas = ExtResource("2_tnhlw")
+region = Rect2(207, 0, 69, 595)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_plj7t"]
+atlas = ExtResource("2_tnhlw")
+region = Rect2(276, 0, 69, 595)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dtr31"]
+atlas = ExtResource("2_tnhlw")
+region = Rect2(345, 0, 69, 595)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0h4gh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s20m7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q25r3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4eun3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7dqgm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_plj7t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dtr31")
+}],
+"loop": 0,
+"name": &"carrot",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ygooy"]
+
+[node name="Checkpoint" type="Area2D" unique_id=1684101722]
+script = ExtResource("1_r6hke")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=988461108]
+position = Vector2(-2, 2.3841858e-07)
+scale = Vector2(0.21195656, 0.13739496)
+sprite_frames = SubResource("SpriteFrames_0h4gh")
+animation = &"carrot"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=434710055]
+shape = SubResource("RectangleShape2D_ygooy")

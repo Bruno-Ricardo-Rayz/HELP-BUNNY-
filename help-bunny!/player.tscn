@@ -1,0 +1,70 @@
+[gd_scene format=3 uid="uid://uh45kbrgilx3"]
+
+[ext_resource type="Script" uid="uid://ds12wg2kh8hay" path="res://player.gd" id="1_hqtel"]
+[ext_resource type="Texture2D" uid="uid://0ro2sl2p4srq" path="res://32PixelBunny/32PixelBunny/PNG/BunnyRun-Sheet.png" id="1_onrkg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3w5fx"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_onrkg"]
+atlas = ExtResource("1_onrkg")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i3pqv"]
+atlas = ExtResource("1_onrkg")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hqtel"]
+atlas = ExtResource("1_onrkg")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sweqy"]
+atlas = ExtResource("1_onrkg")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2hs0m"]
+atlas = ExtResource("1_onrkg")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ckb4l"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_onrkg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i3pqv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hqtel")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sweqy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2hs0m")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 12.0
+}]
+
+[node name="Player" type="CharacterBody2D" unique_id=435271284]
+script = ExtResource("1_hqtel")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=573600892]
+position = Vector2(252, 592)
+scale = Vector2(5, 5)
+shape = SubResource("RectangleShape2D_3w5fx")
+
+[node name="Camera2D" type="Camera2D" parent="CollisionShape2D" unique_id=406605290]
+position = Vector2(-28.6, -27.999998)
+limit_left = 0
+limit_top = -9999840
+limit_bottom = 10000080
+position_smoothing_enabled = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=294281695]
+position = Vector2(252, 593)
+scale = Vector2(4.703126, 4.281249)
+sprite_frames = SubResource("SpriteFrames_ckb4l")
+frame_progress = 0.8699124

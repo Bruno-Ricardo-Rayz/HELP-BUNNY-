@@ -1024,7 +1024,7 @@ tile_set = SubResource("TileSet_ckb4l")
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground" unique_id=1769914197]
 position = Vector2(-312, 555)
-motion_scale = Vector2(0, 0)
+motion_scale = Vector2(0.05, 1)
 motion_mirroring = Vector2(1152, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer" unique_id=990768390]
@@ -1083,4 +1083,4 @@ scale = Vector2(3.3280551, 5.6825814)
 texture = ExtResource("9_s77qv")
 
 [node name="Player" parent="." unique_id=435271284 instance=ExtResource("16_78pok")]
-position = Vector2(145, 8)
+position = Vector2(12, -68)

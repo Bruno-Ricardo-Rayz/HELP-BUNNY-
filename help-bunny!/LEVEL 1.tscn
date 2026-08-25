@@ -2083,7 +2083,7 @@ tile_set = SubResource("TileSet_xvf33")
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground" unique_id=1648403974]
 position = Vector2(-688, 709)
-motion_scale = Vector2(0, 0)
+motion_scale = Vector2(0.05, 1)
 motion_mirroring = Vector2(1152, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer" unique_id=213795849]
@@ -2142,4 +2142,4 @@ scale = Vector2(3.3280551, 3.358801)
 texture = ExtResource("16_eghdg")
 
 [node name="player" parent="." unique_id=435271284 instance=ExtResource("16_c1kwr")]
-position = Vector2(-1485, 49)
+position = Vector2(-1645, -40)

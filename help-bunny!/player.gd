@@ -16,6 +16,9 @@ var estado_atual: Estado = Estado.CORRENDO
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 
 func _ready():
+	# Registra no grupo para o Projétil conseguir identificar o Player
+	add_to_group("player")
+	
 	raycast_obstaculo.collide_with_areas = true
 	raycast_obstaculo.collide_with_bodies = true
 	
@@ -85,6 +88,28 @@ func pular_obstaculo_automaticamente():
 		# Salva no GameData que o jogador avançou um obstáculo (checkpoint)
 		if GameData:
 			GameData.tem_checkpoint = true
+
+# --- SISTEMA DE DANO E DERROTA ---
+
+func tomar_dano():
+	# Efeito visual: pisca rapidamente em vermelho ao sofrer dano
+	var tween = create_tween()
+	tween.tween_property(sprite, "modulate", Color(2.0, 0.2, 0.2, 1.0), 0.1)
+	tween.tween_property(sprite, "modulate", Color.WHITE, 0.1)
+
+	# Se a vida zerar, executa a morte
+	if GameData and GameData.vida_atual <= 0:
+		morrer()
+
+func morrer():
+	# Para totalmente a física do player
+	velocity = Vector2.ZERO
+	set_physics_process(false)
+	set_process(false)
+	
+	# Toca animação de hit/derrota se ela existir no sprite
+	if sprite.sprite_frames and sprite.sprite_frames.has_animation("hit"):
+		sprite.play("hit")
 
 # --- PAUSA DE CHECKPOINT ---
 

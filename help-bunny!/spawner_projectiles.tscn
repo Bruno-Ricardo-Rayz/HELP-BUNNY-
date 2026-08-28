@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://crsoxht4nw276"]
+
+[ext_resource type="Script" uid="uid://bod24nv8xo0o" path="res://spawner_projectiles.gd" id="1_yydg4"]
+[ext_resource type="PackedScene" uid="uid://c5m5r75g858cf" path="res://projectile.tscn" id="2_pqimt"]
+
+[node name="SpawnerProjectiles" type="Node2D" unique_id=2110268426]
+script = ExtResource("1_yydg4")
+cena_projetil = ExtResource("2_pqimt")
+sequencia_projeteis = Array[String](["normal", "fogo"])

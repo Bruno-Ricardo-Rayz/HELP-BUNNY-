@@ -2,12 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bxivj0gnir24q"
-valid=false
+uid="uid://c77thg6ubuqny"
+path="res://.godot/imported/cenoura_de_fogo-removebg-preview.png-ad0c6a6c58e9c5948c47b965d9cd1daf.ctex"
+metadata={
+"vram_texture": false
+}
 
 [deps]
 
-source_file="res://webfontkit-BoldPixels/boldpixels.svg"
+source_file="res://cenoura_de_fogo-removebg-preview.png"
+dest_files=["res://.godot/imported/cenoura_de_fogo-removebg-preview.png-ad0c6a6c58e9c5948c47b965d9cd1daf.ctex"]
 
 [params]
 
@@ -34,6 +38,3 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
-svg/scale=1.0
-editor/scale_with_editor_scale=false
-editor/convert_colors_with_editor_theme=false

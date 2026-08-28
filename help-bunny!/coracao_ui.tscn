@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://blv7w4ksnn8vd"]
+
+[ext_resource type="Texture2D" uid="uid://cli65pmypsoq8" path="res://hearts.png" id="1_ol6eq"]
+[ext_resource type="Script" uid="uid://tmifltiasqpb" path="res://coracao_ui.gd" id="2_0gjwm"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o6wq0"]
+atlas = ExtResource("1_ol6eq")
+region = Rect2(96, 22, 20, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tgbf4"]
+atlas = ExtResource("1_ol6eq")
+region = Rect2(116, 22, 20, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tks84"]
+atlas = ExtResource("1_ol6eq")
+region = Rect2(136, 22, 20, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ff1er"]
+atlas = ExtResource("1_ol6eq")
+region = Rect2(156, 22, 20, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ebum8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o6wq0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tgbf4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tks84")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ff1er")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[node name="CoracaoUI" type="AnimatedSprite2D" unique_id=1809092228]
+sprite_frames = SubResource("SpriteFrames_ebum8")
+animation = &"idle"
+autoplay = "idle"
+frame = 3
+frame_progress = 0.72062343
+script = ExtResource("2_0gjwm")

@@ -80,7 +80,7 @@ position = Vector2(21, 5)
 position = Vector2(895, -19)
 
 [node name="Obstacle2" parent="." unique_id=631012069 instance=ExtResource("3_ysnjr")]
-position = Vector2(1408, -29)
+position = Vector2(2103, 203)
 
 [node name="HUD" parent="." unique_id=1031871079 instance=ExtResource("4_rjm81")]
 player_node = NodePath("../Player")
@@ -91,7 +91,7 @@ position = Vector2(1803, -41)
 proxima_cena = "uid://bdtfw4gn0p0ub"
 
 [node name="Checkpoint" parent="." unique_id=1684101722 instance=ExtResource("6_wkqnf")]
-position = Vector2(1188, -44)
+position = Vector2(1183, 167)
 
 [node name="SpawnerProjectiles" parent="." unique_id=2110268426 instance=ExtResource("7_kcyr1")]
 position = Vector2(496, -4)

@@ -57,7 +57,7 @@ scale = Vector2(5, 5)
 shape = SubResource("RectangleShape2D_3w5fx")
 
 [node name="Camera2D" type="Camera2D" parent="CollisionShape2D" unique_id=406605290]
-position = Vector2(-28.6, -27.999998)
+position = Vector2(6.999998, -22.999998)
 limit_left = 0
 limit_top = -9999840
 limit_bottom = 10000080

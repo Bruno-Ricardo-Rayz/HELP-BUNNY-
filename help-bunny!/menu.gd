@@ -24,7 +24,10 @@ var tween_pulsar_logo: Tween
 func _ready():
 	players = [p1, p2, p3]
 	
-	# Fade in inicial
+	# Desativa a captura de mouse em imagens decorativas para não bloquear os botões
+	configurar_filtros_mouse()
+	
+	# Fade in inicial suave usando o ColorRect local do menu
 	if is_instance_valid(color_rect):
 		color_rect.color.a = 1.0
 		var tween_inicial = create_tween()
@@ -59,6 +62,18 @@ func _ready():
 		posicionar_cenoura_no_botao(btn_continuar)
 	elif is_instance_valid(btn_novo_jogo):
 		posicionar_cenoura_no_botao(btn_novo_jogo)
+
+# --- GARANTE QUE NENHUMA IMAGEM BLOQUEIE O MOUSE ---
+
+func configurar_filtros_mouse():
+	if is_instance_valid(icone_ia):
+		icone_ia.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	if is_instance_valid(cenoura):
+		cenoura.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	if is_instance_valid(logo):
+		logo.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	if is_instance_valid(color_rect):
+		color_rect.mouse_filter = Control.MOUSE_FILTER_IGNORE
 
 # --- CONEXÃO AUTOMÁTICA DE SINAIS ---
 
@@ -96,7 +111,6 @@ func posicionar_icone_ia():
 		icone_ia.size = Vector2(620, 620)
 		icone_ia.global_position = Vector2(810, 280)
 		icone_ia.show()
-		icone_ia.move_to_front()
 
 # --- AJUSTE E ANIMAÇÃO DA LOGO ---
 
@@ -194,33 +208,29 @@ func trocar_video_com_transicao():
 		var tween_in = create_tween()
 		tween_in.tween_property(color_rect, "color:a", 0.0, 0.5)
 
-# --- CLIQUE DOS BOTÕES ---
+# --- CLIQUE DOS BOTÕES (USANDO TRANSITION AUTOMÁTICO) ---
 
 func _on_btn_novo_jogo_pressed():
 	if GameData:
 		GameData.resetar_checkpoint_para_nova_fase("res://LEVEL 1.tscn")
 	
-	if is_instance_valid(color_rect):
-		var tween = create_tween()
-		tween.tween_property(color_rect, "color:a", 1.0, 0.5)
-		await tween.finished
-		
-	get_tree().change_scene_to_file("res://LEVEL 1.tscn")
+	if Transition:
+		Transition.ir_para("res://LEVEL 1.tscn")
+	else:
+		get_tree().change_scene_to_file("res://LEVEL 1.tscn")
 
 func _on_btn_continuar_pressed():
 	if GameData and GameData.tem_checkpoint and GameData.fase_atual != "":
-		if is_instance_valid(color_rect):
-			var tween = create_tween()
-			tween.tween_property(color_rect, "color:a", 1.0, 0.5)
-			await tween.finished
-		get_tree().change_scene_to_file(GameData.fase_atual)
+		if Transition:
+			Transition.ir_para(GameData.fase_atual)
+		else:
+			get_tree().change_scene_to_file(GameData.fase_atual)
 
 func _on_btn_creditos_pressed():
-	if is_instance_valid(color_rect):
-		var tween = create_tween()
-		tween.tween_property(color_rect, "color:a", 1.0, 0.5)
-		await tween.finished
-	get_tree().change_scene_to_file("res://creditos.tscn")
+	if Transition:
+		Transition.ir_para("res://creditos.tscn")
+	else:
+		get_tree().change_scene_to_file("res://creditos.tscn")
 
 func _on_btn_sair_pressed():
 	get_tree().quit()

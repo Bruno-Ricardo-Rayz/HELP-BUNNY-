@@ -325,3 +325,7 @@ func game_over_tempo():
 	ativo = false
 	if richtext_palavra:
 		richtext_palavra.text = "[center][color=red]GAME OVER![/color][/center]"
+		
+	# Dispara a função de morte do coelho (que executa a animação 'dead' e aguarda 4s)
+	if player and player.has_method("morrer"):
+		player.morrer()

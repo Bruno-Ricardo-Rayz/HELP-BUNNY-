@@ -77,7 +77,7 @@ tile_set = SubResource("TileSet_ebum8")
 position = Vector2(21, 5)
 
 [node name="Obstacle" parent="." unique_id=1030185075 instance=ExtResource("3_ysnjr")]
-position = Vector2(895, -19)
+position = Vector2(895, 163)
 
 [node name="Obstacle2" parent="." unique_id=631012069 instance=ExtResource("3_ysnjr")]
 position = Vector2(2103, 203)
@@ -87,7 +87,7 @@ player_node = NodePath("../Player")
 cena_coracao = ExtResource("5_kcyr1")
 
 [node name="Portal" parent="." unique_id=479594053 instance=ExtResource("6_wvtn5")]
-position = Vector2(1803, -41)
+position = Vector2(2214, 222)
 proxima_cena = "uid://bdtfw4gn0p0ub"
 
 [node name="Checkpoint" parent="." unique_id=1684101722 instance=ExtResource("6_wkqnf")]

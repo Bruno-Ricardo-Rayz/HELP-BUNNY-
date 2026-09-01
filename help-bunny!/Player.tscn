@@ -2,13 +2,43 @@
 
 [ext_resource type="Script" uid="uid://bldj3yfdpviia" path="res://player.gd" id="1_dtqjt"]
 [ext_resource type="Texture2D" uid="uid://ddjgmnspndeyq" path="res://32PixelBunny/32PixelBunny/PNG/BunnyDead-Sheet.png" id="2_5ncpa"]
+[ext_resource type="Texture2D" uid="uid://jlqxw28whtjt" path="res://32PixelBunny/32PixelBunny/PNG/BunnyAttack-Sheet.png" id="2_wi0c6"]
 [ext_resource type="Texture2D" uid="uid://2mpsf4p4ha03" path="res://32PixelBunny/32PixelBunny/PNG/BunnyLieDown-Sheet.png" id="3_wi0c6"]
 [ext_resource type="Texture2D" uid="uid://cqek2tdrneeb" path="res://32PixelBunny/32PixelBunny/PNG/BunnySitting-Sheet.png" id="4_hp6x6"]
 [ext_resource type="Texture2D" uid="uid://diohi6430fkg5" path="res://32PixelBunny/32PixelBunny/PNG/BunnyIdle-Sheet.png" id="5_3tkgg"]
 [ext_resource type="Texture2D" uid="uid://0ro2sl2p4srq" path="res://32PixelBunny/32PixelBunny/PNG/BunnyRun-Sheet.png" id="6_l6ohk"]
+[ext_resource type="Texture2D" uid="uid://5frmh4hd08vx" path="res://32PixelBunny/32PixelBunny/PNG/BunnyHurt-Sheet.png" id="6_wi0c6"]
 [ext_resource type="Texture2D" uid="uid://bxat71dc6q6vt" path="res://32PixelBunny/32PixelBunny/PNG/BunnySleep-Sheet.png" id="7_oudfo"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ebum8"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hp6x6"]
+atlas = ExtResource("2_wi0c6")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3tkgg"]
+atlas = ExtResource("2_wi0c6")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l6ohk"]
+atlas = ExtResource("2_wi0c6")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oudfo"]
+atlas = ExtResource("2_wi0c6")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u4q42"]
+atlas = ExtResource("2_wi0c6")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ctcj5"]
+atlas = ExtResource("2_wi0c6")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_chpgb"]
+atlas = ExtResource("2_wi0c6")
+region = Rect2(192, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_d6rpx"]
 atlas = ExtResource("2_5ncpa")
@@ -64,6 +94,18 @@ region = Rect2(32, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_yt0h1"]
 atlas = ExtResource("4_hp6x6")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xjpfi"]
+atlas = ExtResource("6_wi0c6")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_po6o7"]
+atlas = ExtResource("6_wi0c6")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b3xlj"]
+atlas = ExtResource("6_wi0c6")
 region = Rect2(64, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vd78s"]
@@ -150,6 +192,32 @@ region = Rect2(32, 0, 32, 32)
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_hp6x6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3tkgg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l6ohk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oudfo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u4q42")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ctcj5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_chpgb")
+}],
+"loop": 1,
+"name": &"attack",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_d6rpx")
 }, {
 "duration": 1.0,
@@ -176,7 +244,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_sg6sq")
 }],
-"loop": 1,
+"loop": 0,
 "name": &"dead",
 "speed": 5.0
 }, {
@@ -203,6 +271,20 @@ animations = [{
 }],
 "loop": 1,
 "name": &"desperto",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xjpfi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_po6o7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b3xlj")
+}],
+"loop": 1,
+"name": &"hurt",
 "speed": 5.0
 }, {
 "frames": [{

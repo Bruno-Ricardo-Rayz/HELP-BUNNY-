@@ -18,6 +18,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 GameData="*uid://bv80prd74oruc"
+Transition="*uid://bebqsjmkghk3k"
 
 [display]
 

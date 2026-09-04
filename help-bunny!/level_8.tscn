@@ -2,7 +2,6 @@
 
 [ext_resource type="Texture2D" uid="uid://c8whn5cgybr15" path="res://bioma terra.png" id="1_cefe7"]
 [ext_resource type="Texture2D" uid="uid://bkoq3hfii8wno" path="res://arvores.png" id="2_6p3fb"]
-[ext_resource type="PackedScene" uid="uid://uh45kbrgilx3" path="res://player.tscn" id="3_n4tc2"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_h6j53"]
 texture = ExtResource("1_cefe7")
@@ -197,6 +196,3 @@ tile_set = SubResource("TileSet_0i88t")
 [node name="TileMapLayer" type="TileMapLayer" parent="TileMapLayer" unique_id=1859166403]
 tile_map_data = PackedByteArray("AAAhAAQAAAABAAEAAAAhAAUAAAABAAIAAAAkAAQAAAABAAEAABAkAAUAAAABAAIAABAiAAQAAAACAAEAAAAiAAUAAAACAAIAAAAjAAQAAAACAAEAAAAjAAUAAAACAAIAAAA8AAMAAAACAAEAAAA8AAQAAAACAAIAAAA9AAMAAAACAAEAAAA9AAQAAAACAAIAAAA8AAUAAAACAAIAAAA9AAUAAAACAAIAAAA7AAMAAAABAAEAAAA7AAQAAAABAAIAAAA+AAMAAAABAAEAABA+AAQAAAABAAIAABA7AAUAAAABAAIAAAA+AAUAAAABAAIAABA=")
 tile_set = SubResource("TileSet_cefe7")
-
-[node name="Player" parent="." unique_id=435271284 instance=ExtResource("3_n4tc2")]
-position = Vector2(0, -74)

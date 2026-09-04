@@ -15,7 +15,6 @@
 [ext_resource type="Texture2D" uid="uid://eyun3tha7gti" path="res://Glacial-mountains-parallax-background_vnitti/Layers/clouds_bg.png" id="11_a0l56"]
 [ext_resource type="Texture2D" uid="uid://ba7xyaeeou3br" path="res://Glacial-mountains-parallax-background_vnitti/Layers/glacial_mountains_lightened.png" id="12_etsyl"]
 [ext_resource type="Texture2D" uid="uid://qfketv2hd0yf" path="res://Paralax background Pack/Green mountain/Clouds.png" id="15_a0l56"]
-[ext_resource type="PackedScene" uid="uid://uh45kbrgilx3" path="res://player.tscn" id="16_c1kwr"]
 [ext_resource type="Texture2D" uid="uid://o0jrwesynca0" path="res://Glacial-mountains-parallax-background_vnitti/Layers/clouds_mg_2.png" id="16_eghdg"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kcyr1"]
@@ -2149,6 +2148,3 @@ motion_mirroring = Vector2(1152, 0)
 position = Vector2(581, 222)
 scale = Vector2(3.003898, 3.7442155)
 texture = ExtResource("16_eghdg")
-
-[node name="player" parent="." unique_id=435271284 instance=ExtResource("16_c1kwr")]
-position = Vector2(-101, -46)

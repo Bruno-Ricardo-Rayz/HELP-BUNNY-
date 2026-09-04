@@ -4,6 +4,9 @@ extends Area2D
 @export var dano: int = 1
 @export var tempo_digitacao: float = 3.0
 
+# --- SOM DO PROJÉTIL ---
+@export var som_disparo: AudioStream
+
 var eh_fogo: bool = false
 var ativo: bool = true
 var tempo_vida: float = 0.0
@@ -12,8 +15,10 @@ var tempo_vida: float = 0.0
 
 func _ready():
 	# Conecta os sinais de colisão via código
-	body_entered.connect(_on_body_entered)
-	area_entered.connect(_on_area_entered)
+	if not body_entered.is_connected(_on_body_entered):
+		body_entered.connect(_on_body_entered)
+	if not area_entered.is_connected(_on_area_entered):
+		area_entered.connect(_on_area_entered)
 
 	# Toca a animação correspondente
 	if sprite:
@@ -25,12 +30,33 @@ func _ready():
 			if sprite.sprite_frames and sprite.sprite_frames.has_animation("carrot"):
 				sprite.play("carrot")
 
+	# Toca o áudio de disparo assim que a cenoura é criada
+	tocar_som_disparo()
+
 func _process(delta):
 	tempo_vida += delta
 	if ativo:
 		# Movimenta a cenoura para a esquerda calculando a velocidade real
 		var delta_real = delta / Engine.time_scale if Engine.time_scale > 0 else delta
 		position.x -= velocidade * delta_real
+
+# --- LÓGICA DE ÁUDIO DO DISPARO ---
+
+func tocar_som_disparo():
+	if som_disparo:
+		# Cria um nó de áudio temporário na raiz do jogo para que o som continue 
+		# tocando até o fim mesmo se a cenoura for destruída ou pausada pelo desafio
+		var player_audio = AudioStreamPlayer.new()
+		player_audio.stream = som_disparo
+		player_audio.bus = "Master"
+		
+		get_tree().root.add_child(player_audio)
+		player_audio.play()
+		
+		# Libera o nó de áudio da memória assim que terminar de tocar
+		player_audio.finished.connect(player_audio.queue_free)
+
+# --- DETECÇÃO DE COLISÃO ---
 
 func _on_body_entered(body):
 	if not ativo or tempo_vida < 0.1:

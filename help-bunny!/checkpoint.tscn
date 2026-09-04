@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bkxb5k38ledb2" path="res://checkpoint.gd" id="1_r6hke"]
 [ext_resource type="Texture2D" uid="uid://d1rem8mjnlxph" path="res://checkponit_carrot-removebg-preview.png" id="2_tnhlw"]
+[ext_resource type="AudioStream" uid="uid://b51k4sjkjpsjb" path="res://audio/freesound_community-eating-a-carrot-88786.mp3" id="3_tnhlw"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_s20m7"]
 atlas = ExtResource("2_tnhlw")
@@ -66,3 +67,7 @@ animation = &"carrot"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=434710055]
 shape = SubResource("RectangleShape2D_ygooy")
+
+[node name="SomCheckpoint" type="AudioStreamPlayer" parent="." unique_id=675907561]
+stream = ExtResource("3_tnhlw")
+pitch_scale = 2.0

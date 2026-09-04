@@ -14,6 +14,10 @@ extends Control
 @onready var logo: TextureRect = $UI/LogoMenu
 @onready var icone_ia: TextureRect = $UI/IconeIA
 
+# --- NÓS DE ÁUDIO DE CLIQUE ---
+@onready var som_clique_padrao: AudioStreamPlayer = $SomCliquePadrao
+@onready var som_clique_creditos: AudioStreamPlayer = $SomCliqueCreditos
+
 # --- VARIÁVEIS DE CONTROLE ---
 var players = []
 var indice_atual: int = 0
@@ -22,6 +26,10 @@ var tween_pulsar_cenoura: Tween
 var tween_pulsar_logo: Tween
 
 func _ready():
+	# Inicia/Retoma a playlist do menu caso tenha vindo de uma fase
+	if GerenciadorMusica:
+		GerenciadorMusica.iniciar_playlist()
+
 	players = [p1, p2, p3]
 	
 	# Desativa a captura de mouse em imagens decorativas para não bloquear os botões
@@ -208,18 +216,32 @@ func trocar_video_com_transicao():
 		var tween_in = create_tween()
 		tween_in.tween_property(color_rect, "color:a", 0.0, 0.5)
 
-# --- CLIQUE DOS BOTÕES (USANDO TRANSITION AUTOMÁTICO) ---
+# --- CLIQUE DOS BOTÕES COM SOM ---
 
 func _on_btn_novo_jogo_pressed():
-	if GameData:
-		GameData.resetar_checkpoint_para_nova_fase("res://LEVEL 1.tscn")
-	
+	# 1. PARADA FORÇADA DA MÚSICA DO MENU
+	if GerenciadorMusica:
+		GerenciadorMusica.parar_playlist()
+
+	if is_instance_valid(som_clique_padrao):
+		som_clique_padrao.play()
+		await get_tree().create_timer(0.15).timeout
+
+	# Redireciona para a tela de tutorial antes de ir para o LEVEL 1
 	if Transition:
-		Transition.ir_para("res://LEVEL 1.tscn")
+		Transition.ir_para("res://tutorial.tscn")
 	else:
-		get_tree().change_scene_to_file("res://LEVEL 1.tscn")
+		get_tree().change_scene_to_file("res://tutorial.tscn")
 
 func _on_btn_continuar_pressed():
+	# 1. PARADA FORÇADA DA MÚSICA DO MENU
+	if GerenciadorMusica:
+		GerenciadorMusica.parar_playlist()
+
+	if is_instance_valid(som_clique_padrao):
+		som_clique_padrao.play()
+		await get_tree().create_timer(0.15).timeout
+
 	if GameData and GameData.tem_checkpoint and GameData.fase_atual != "":
 		if Transition:
 			Transition.ir_para(GameData.fase_atual)
@@ -227,10 +249,18 @@ func _on_btn_continuar_pressed():
 			get_tree().change_scene_to_file(GameData.fase_atual)
 
 func _on_btn_creditos_pressed():
+	if is_instance_valid(som_clique_creditos):
+		som_clique_creditos.play()
+		await get_tree().create_timer(0.2).timeout
+
 	if Transition:
 		Transition.ir_para("res://creditos.tscn")
 	else:
 		get_tree().change_scene_to_file("res://creditos.tscn")
 
 func _on_btn_sair_pressed():
+	if is_instance_valid(som_clique_padrao):
+		som_clique_padrao.play()
+		await get_tree().create_timer(0.15).timeout
+
 	get_tree().quit()

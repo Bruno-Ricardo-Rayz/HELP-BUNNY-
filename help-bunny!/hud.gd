@@ -29,10 +29,15 @@ var player: CharacterBody2D
 @export var cena_coracao: PackedScene
 var lista_coracoes: Array = []
 
+# --- NÓS DA INTERFACE E ÁUDIOS ---
 @onready var richtext_palavra: RichTextLabel = $RichTextLabelPalavra
 @onready var label_tempo: Label = $LabelTempo
 @onready var label_feedback: Label = $LabelFeedback
 @onready var container_vidas: HBoxContainer = $ContainerVidas
+
+@onready var som_acerto: AudioStreamPlayer = $SomAcerto
+@onready var som_erro: AudioStreamPlayer = $SomErro
+@onready var som_game_over: AudioStreamPlayer = $SomGameOver
 
 func _ready():
 	add_to_group("hud")
@@ -50,7 +55,6 @@ func _ready():
 	carregar_dicionario("res://dicionario.txt")
 	atualizar_ui_tempo()
 	
-	# Se a cena do coração não foi arrastada no Inspetor, tenta carregar direto
 	if not cena_coracao:
 		cena_coracao = load("res://coracao_ui.tscn")
 		
@@ -60,7 +64,6 @@ func inicializar_coracoes_ui():
 	if not container_vidas:
 		return
 
-	# Limpa qualquer coração antigo no container
 	for c in container_vidas.get_children():
 		c.queue_free()
 	lista_coracoes.clear()
@@ -70,7 +73,6 @@ func inicializar_coracoes_ui():
 	if not cena_coracao:
 		return
 
-	# Instancia cada coração dentro de uma caixa para manter espaçamento no HBoxContainer
 	for i in range(total_vidas):
 		var caixa_suporte = Control.new()
 		caixa_suporte.custom_minimum_size = Vector2(30, 30)
@@ -101,7 +103,6 @@ func carregar_dicionario(caminho_arquivo: String):
 		lista_palavras = ["BOM", "PULAR", "GATO", "CASA"]
 
 func _process(delta):
-	# Lógica durante a câmera lenta do Projétil
 	if modo_projetil:
 		var delta_real = delta / Engine.time_scale
 		tempo_projetil_restante -= delta_real
@@ -112,7 +113,6 @@ func _process(delta):
 			falha_projetil()
 		return
 
-	# Lógica do Tempo Normal
 	if tempo_restante > 0:
 		tempo_restante -= delta
 		atualizar_ui_tempo()
@@ -131,10 +131,7 @@ func iniciar_desafio_projetil(projetil_node, tempo: float, dano: int):
 	projetil_atual = projetil_node
 	dano_projetil_atual = dano
 	
-	# Força o tempo para 3.0s ou usa o tempo passado pelo projétil
 	tempo_projetil_restante = 3.0 if tempo <= 0 else tempo
-	
-	# Câmera mais lenta (0.08 deixa bem lento para o jogador ter tempo de ler e reagir)
 	Engine.time_scale = 0.08
 	gerar_palavra_projetil()
 
@@ -154,6 +151,11 @@ func gerar_palavra_projetil():
 
 func falha_projetil():
 	restaurar_tempo_normal()
+	
+	# Toca o áudio de erro
+	if is_instance_valid(som_erro):
+		som_erro.play()
+
 	aplicar_dano_player(dano_projetil_atual)
 	exibir_feedback("ATINGIDO!", Color.RED)
 	if is_instance_valid(projetil_atual):
@@ -161,10 +163,16 @@ func falha_projetil():
 
 func sucesso_projetil():
 	restaurar_tempo_normal()
+	
+	# Toca o áudio de acerto
+	if is_instance_valid(som_acerto):
+		som_acerto.play()
+
 	exibir_feedback("DESVIADO!", Color.GREEN)
 	
 	if GameData and GameData.vida_atual < GameData.vida_maxima:
-		GameData.vida_atual += 1
+		if player and player.has_method("recuperar_vida"):
+			player.recuperar_vida(1)
 		atualizar_ui_vida(true)
 	else:
 		tempo_restante += 3.0
@@ -224,6 +232,10 @@ func validar_letra(letra_digitada: String):
 			aplicar_erro()
 
 func aplicar_erro():
+	# Toca o áudio de erro
+	if is_instance_valid(som_erro):
+		som_erro.play()
+
 	tempo_restante -= penalidade_atual
 	if tempo_restante < 0:
 		tempo_restante = 0
@@ -233,6 +245,10 @@ func aplicar_erro():
 	gerar_nova_palavra()
 
 func sucesso_palavra():
+	# Toca o áudio de acerto
+	if is_instance_valid(som_acerto):
+		som_acerto.play()
+
 	ativo = false
 	if richtext_palavra:
 		richtext_palavra.text = ""
@@ -299,15 +315,15 @@ func atualizar_ui_vida(animar: bool = true):
 					coracao.visible = false
 
 func aplicar_dano_player(quantidade: int):
-	if GameData and "vida_atual" in GameData:
-		GameData.vida_atual -= quantidade
-		if GameData.vida_atual < 0:
-			GameData.vida_atual = 0
+	if player and player.has_method("tomar_dano"):
+		player.tomar_dano(quantidade)
+	else:
+		if GameData and "vida_atual" in GameData:
+			GameData.vida_atual -= quantidade
+			if GameData.vida_atual < 0:
+				GameData.vida_atual = 0
 	
 	atualizar_ui_vida(true)
-	
-	if player and player.has_method("tomar_dano"):
-		player.tomar_dano()
 
 	if GameData and "vida_atual" in GameData and GameData.vida_atual <= 0:
 		game_over_tempo()
@@ -323,9 +339,17 @@ func exibir_feedback(texto: String, cor: Color):
 func game_over_tempo():
 	Engine.time_scale = 1.0
 	ativo = false
+	
+	# Para a música de fundo se houver gerenciador rodando
+	if GerenciadorMusica and GerenciadorMusica.has_method("parar_playlist"):
+		GerenciadorMusica.parar_playlist()
+
+	# Toca o efeito sonoro de Game Over
+	if is_instance_valid(som_game_over):
+		som_game_over.play()
+
 	if richtext_palavra:
 		richtext_palavra.text = "[center][color=red]GAME OVER![/color][/center]"
 		
-	# Dispara a função de morte do coelho (que executa a animação 'dead' e aguarda 4s)
 	if player and player.has_method("morrer"):
 		player.morrer()

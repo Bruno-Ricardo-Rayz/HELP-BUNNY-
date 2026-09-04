@@ -1,0 +1,68 @@
+[gd_scene format=3 uid="uid://rb2x71f2b7bu"]
+
+[ext_resource type="Script" uid="uid://onyg1dha1q8d" path="res://tutorial.gd" id="1_yb1ct"]
+[ext_resource type="FontFile" uid="uid://cf5f4dvxuw0wr" path="res://BoldPixels.ttf" id="2_ehuit"]
+
+[node name="Tutorial" type="Control" unique_id=1401353233]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_yb1ct")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1434136350]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=512413914]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1.0
+offset_right = -9.0
+offset_bottom = -9.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="VBoxContainer" unique_id=1533589744]
+custom_minimum_size = Vector2(1144, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_ehuit")
+theme_override_font_sizes/font_size = 32
+text = "TUTORIAL
+
+O HELP BUNNY! É UM JOGO DE DIGITAÇÃO NO TECLADO, ENTÃO ACERTE TECLAS CORRETAS ANTES QUE O TEMPO ACABE!
+TERÁ PROJETEIS NO JOGO QUE TERÁ UM TEMPO PARA DIGITAR E SE ERRAR PERDERAR VIDA... ENTÃO SEMPRE SE MANTENHA ATENTO....
+TOME CUIDADO ACENTOS ESTAM INCLUIDOS SE NÃO OS COLOCAR NO LUGAR CERTO SUA PALAVRA SERÁ DADA COMO ERRADA...
+VOCÊ TERÁ 3 VIDAS PODENDO RECUPERAR ELA CASO ACERTE OS PROJETEIS
+CADA FASE TERA SOMENTE UM CHECKPOINT
+
+BOA SORTE E APROVEITE O NOSSO JOGO! :)"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Label de saída" type="Label" parent="." unique_id=1998391104]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -528.0
+offset_top = -69.0
+offset_right = -40.0
+offset_bottom = -46.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("2_ehuit")
+theme_override_font_sizes/font_size = 25
+text = "APERTE QUALQUER TECLA PARA CONTINUAR"

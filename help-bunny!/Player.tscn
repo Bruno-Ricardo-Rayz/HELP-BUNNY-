@@ -9,6 +9,9 @@
 [ext_resource type="Texture2D" uid="uid://0ro2sl2p4srq" path="res://32PixelBunny/32PixelBunny/PNG/BunnyRun-Sheet.png" id="6_l6ohk"]
 [ext_resource type="Texture2D" uid="uid://5frmh4hd08vx" path="res://32PixelBunny/32PixelBunny/PNG/BunnyHurt-Sheet.png" id="6_wi0c6"]
 [ext_resource type="Texture2D" uid="uid://bxat71dc6q6vt" path="res://32PixelBunny/32PixelBunny/PNG/BunnySleep-Sheet.png" id="7_oudfo"]
+[ext_resource type="AudioStream" uid="uid://c1tjtq2mdrfpl" path="res://audio/pulo do coelho.wav" id="10_l6ohk"]
+[ext_resource type="AudioStream" uid="uid://jmr73dnqc5kk" path="res://audio/recuperandovida.wav" id="11_oudfo"]
+[ext_resource type="AudioStream" uid="uid://djcl8kgfkr684" path="res://audio/perdeuvida.wav" id="12_d6rpx"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ebum8"]
 
@@ -389,3 +392,12 @@ position = Vector2(133, -13)
 zoom = Vector2(4, 4)
 position_smoothing_enabled = true
 position_smoothing_speed = 3.0
+
+[node name="SomPulo" type="AudioStreamPlayer" parent="." unique_id=1660458341]
+stream = ExtResource("10_l6ohk")
+
+[node name="RecuperandoVida" type="AudioStreamPlayer" parent="." unique_id=1263005675]
+stream = ExtResource("11_oudfo")
+
+[node name="PerdendoVida" type="AudioStreamPlayer" parent="." unique_id=62822271]
+stream = ExtResource("12_d6rpx")

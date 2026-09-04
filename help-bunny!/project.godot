@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 GameData="*uid://bv80prd74oruc"
 Transition="*uid://bebqsjmkghk3k"
+GerenciadorMusica="*uid://kiesyb7fxhkw"
 
 [display]
 

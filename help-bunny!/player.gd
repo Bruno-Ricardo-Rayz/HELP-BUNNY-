@@ -18,6 +18,9 @@ var tocando_hurt: bool = false
 # --- NÓS DO COELHO ---
 @onready var raycast_obstaculo: RayCast2D = $RayCast2D
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
+@onready var som_pulo: AudioStreamPlayer = $SomPulo
+@onready var som_perdendo_vida: AudioStreamPlayer = $PerdendoVida
+@onready var som_recuperando_vida: AudioStreamPlayer = $RecuperandoVida
 
 func _ready():
 	add_to_group("player")
@@ -76,6 +79,8 @@ func _physics_process(delta):
 			# Pulo automático de degrau pequeno
 			if is_on_wall() and is_on_floor():
 				velocity.y = força_pulo_degrau
+				if is_instance_valid(som_pulo):
+					som_pulo.play()
 
 			# Detecta o Obstáculo
 			if raycast_obstaculo.is_colliding():
@@ -114,13 +119,27 @@ func pular_obstaculo_automaticamente():
 		velocity.x = impulso_horizontal_pulo
 		estado_atual = Estado.PULANDO
 		
+		# Toca o som do pulo ao saltar o obstáculo
+		if is_instance_valid(som_pulo):
+			som_pulo.play()
+		
 		if GameData:
 			GameData.tem_checkpoint = true
 
-# --- SISTEMA DE DANO E DERROTA ---
+# --- SISTEMA DE DANO, VIDA E DERROTA ---
 
-func tomar_dano():
-	# Animação e efeito visual ao sofrer dano
+func tomar_dano(quantidade: int = 1):
+	# Desconta no GameData
+	if GameData:
+		GameData.vida_atual -= quantidade
+		if GameData.vida_atual < 0:
+			GameData.vida_atual = 0
+
+	# Toca o áudio de dano do coelho
+	if is_instance_valid(som_perdendo_vida):
+		som_perdendo_vida.play()
+
+	# Animação hurt e piscar vermelho
 	tocando_hurt = true
 	tocar_animacao("hurt")
 	
@@ -131,9 +150,18 @@ func tomar_dano():
 	await get_tree().create_timer(0.4).timeout
 	tocando_hurt = false
 
-	# Se a vida zerar, executa a morte
+	# Executa a morte se a vida zerar
 	if GameData and GameData.vida_atual <= 0:
 		morrer()
+
+func recuperar_vida(quantidade: int = 1):
+	if GameData:
+		# Só recupera e toca o som se realmente houver vida faltando
+		if GameData.vida_atual < GameData.vida_maxima:
+			GameData.vida_atual = min(GameData.vida_atual + quantidade, GameData.vida_maxima)
+			
+			if is_instance_valid(som_recuperando_vida):
+				som_recuperando_vida.play()
 
 func morrer():
 	if estado_atual == Estado.MORTO:
@@ -143,12 +171,10 @@ func morrer():
 	velocity = Vector2.ZERO
 	tocar_animacao("dead")
 	
-	# Aguarda 1.5 segundos com o coelho na animação dead
 	await get_tree().create_timer(1.5).timeout
 	
 	Engine.time_scale = 1.0
 	
-	# Usa o Transition para escurecer, recarregar a fase e desclarecer automaticamente
 	if Transition:
 		Transition.ir_para("reiniciar")
 	else:

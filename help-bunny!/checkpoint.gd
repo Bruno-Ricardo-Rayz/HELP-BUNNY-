@@ -1,7 +1,9 @@
 extends Area2D
 
 var ativado: bool = false
+
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
+@onready var som_checkpoint: AudioStreamPlayer = $SomCheckpoint
 
 func _ready():
 	body_entered.connect(_on_body_entered)
@@ -13,6 +15,10 @@ func _ready():
 func _on_body_entered(body):
 	if not ativado and (body.name == "Player" or body.is_in_group("player")):
 		ativado = true
+		
+		# Toca o som do checkpoint
+		if is_instance_valid(som_checkpoint):
+			som_checkpoint.play()
 		
 		# Toca a animação UMA VEZ ao ser coletada
 		if is_instance_valid(animated_sprite):

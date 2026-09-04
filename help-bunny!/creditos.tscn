@@ -43,12 +43,14 @@ theme_override_font_sizes/font_size = 32
 text = "
 
 --- CRIADO POR ---
-Seu Nome
+CHARLESJR E BRUNO RICARDO
 
 --- ARTE & SPRITES ---
-Seu Nome / Assets
+FEITOS POR CHARLESJR / AteBits/ Yūki/ ToffeeCraft/GrafxKid / Dimitri/Creedey
 
 --- MÚSICA & ÁUDIO ---
+COMPOSTA POR lookasupernova/ Helton Yan/ Brackeys/ Leohpaz
+
 Itch.io (Acoustic Folk)
 
 --- ENGINE ---
@@ -59,6 +61,6 @@ Godot Engine 4
 
 
 
-OBRIGADO POR JOGAR!"
+OBRIGADO POR JOGAR! :)"
 horizontal_alignment = 1
 autowrap_mode = 3

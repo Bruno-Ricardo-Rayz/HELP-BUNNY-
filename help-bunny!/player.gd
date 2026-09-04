@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 # --- CONFIGURAÇÕES DE MOVIMENTO ---
-@export var velocidade_corrida: float = 150.0
+@export var velocidade_corrida: float = 450.0
 @export var força_pulo_degrau: float = -200.0     # Pulo curto para subir degraus
 @export var força_pulo_obstaculo: float = -350.0  # Altura do pulo para superar o buraco
 @export var impulso_horizontal_pulo: float = 320.0 # Distância para frente para atravessar o vão

@@ -372,24 +372,32 @@ animations = [{
 }]
 
 [node name="Player" type="CharacterBody2D" unique_id=381203669]
+scale = Vector2(6, 6)
 script = ExtResource("1_dtqjt")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=813767028]
+position = Vector2(26.333334, 69.66667)
 shape = SubResource("CircleShape2D_ebum8")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1624441568]
-position = Vector2(2, -1)
-scale = Vector2(0.78125, 0.875)
+position = Vector2(27.16667, 70.16666)
+scale = Vector2(0.8906249, 0.90625)
 sprite_frames = SubResource("SpriteFrames_ebum8")
-animation = &"dead"
+animation = &"run"
+frame = 1
+frame_progress = 0.26070645
 
 [node name="RayCast2D" type="RayCast2D" parent="." unique_id=1403463222]
+position = Vector2(26.333334, 70)
 target_position = Vector2(38, 0)
 collision_mask = 2
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1587716693]
-position = Vector2(127, -17)
-zoom = Vector2(4, 4)
+position = Vector2(41, 40.166668)
+limit_left = 3
+limit_top = -10000018
+limit_right = 10000005
+limit_bottom = 9999982
 position_smoothing_enabled = true
 position_smoothing_speed = 3.0
 

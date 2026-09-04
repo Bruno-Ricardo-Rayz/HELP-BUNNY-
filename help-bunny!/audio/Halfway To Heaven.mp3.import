@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://clnqdiil6lw26"
+path="res://.godot/imported/Halfway To Heaven.mp3-98b50ab1ef7813daaa0325feea66324a.mp3str"
+
+[deps]
+
+source_file="res://audio/Halfway To Heaven.mp3"
+dest_files=["res://.godot/imported/Halfway To Heaven.mp3-98b50ab1ef7813daaa0325feea66324a.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

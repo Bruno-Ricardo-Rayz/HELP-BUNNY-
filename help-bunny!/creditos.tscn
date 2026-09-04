@@ -1,0 +1,66 @@
+[gd_scene format=3 uid="uid://bc1qtehuusicb"]
+
+[ext_resource type="Script" uid="uid://bkvl35m0tuqym" path="res://creditos.gd" id="1_7flbs"]
+[ext_resource type="FontFile" uid="uid://cf5f4dvxuw0wr" path="res://BoldPixels.ttf" id="2_3rtis"]
+[ext_resource type="Texture2D" uid="uid://by0t2s3bbceox" path="res://logo do game.png" id="2_alf7g"]
+
+[node name="Creditos" type="Control" unique_id=1460319196]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_7flbs")
+
+[node name="Background" type="ColorRect" parent="." unique_id=1069883740]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="CreditosContainer" type="VBoxContainer" parent="." unique_id=1968542378]
+custom_minimum_size = Vector2(800, 0)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Logo" type="TextureRect" parent="CreditosContainer" unique_id=1802773397]
+custom_minimum_size = Vector2(800, 300)
+layout_mode = 2
+texture = ExtResource("2_alf7g")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="TextoCreditos" type="Label" parent="CreditosContainer" unique_id=1130479140]
+custom_minimum_size = Vector2(800, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_3rtis")
+theme_override_font_sizes/font_size = 32
+text = "
+
+--- CRIADO POR ---
+CHARLESJR E BRUNO RICARDO
+
+--- ARTE & SPRITES ---
+FEITOS POR CHARLESJR / AteBits/ Yūki/ ToffeeCraft/GrafxKid / Dimitri/Creedey
+
+--- MÚSICA & ÁUDIO ---
+COMPOSTA POR lookasupernova/ Helton Yan/ Brackeys/ Leohpaz
+
+Itch.io (Acoustic Folk)
+
+--- ENGINE ---
+Godot Engine 4
+
+
+
+
+
+
+OBRIGADO POR JOGAR! :)"
+horizontal_alignment = 1
+autowrap_mode = 3

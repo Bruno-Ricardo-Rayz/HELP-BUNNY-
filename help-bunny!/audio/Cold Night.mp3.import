@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://drl6e08dh8bmo"
+path="res://.godot/imported/Cold Night.mp3-3afa012235f3c96effa07ccad7ccf532.mp3str"
+
+[deps]
+
+source_file="res://audio/Cold Night.mp3"
+dest_files=["res://.godot/imported/Cold Night.mp3-3afa012235f3c96effa07ccad7ccf532.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

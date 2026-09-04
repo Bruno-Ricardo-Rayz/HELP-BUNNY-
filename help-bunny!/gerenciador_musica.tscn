@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://kiesyb7fxhkw"]
+
+[ext_resource type="Script" uid="uid://bvr3ojto6mpv5" path="res://gerenciador_musica.gd" id="1_qxekl"]
+[ext_resource type="AudioStream" uid="uid://dtsr4cup1dmny" path="res://audio/Subculture is Culture.mp3" id="2_t2oej"]
+[ext_resource type="AudioStream" uid="uid://clnqdiil6lw26" path="res://audio/Halfway To Heaven.mp3" id="3_usmov"]
+[ext_resource type="AudioStream" uid="uid://gl3ubmelefjn" path="res://audio/Smoke and Gas.mp3" id="4_p3827"]
+[ext_resource type="AudioStream" uid="uid://drl6e08dh8bmo" path="res://audio/Cold Night.mp3" id="5_0ofup"]
+[ext_resource type="AudioStream" uid="uid://bdfa2yndm53ql" path="res://audio/Showdown.mp3" id="6_f388x"]
+[ext_resource type="AudioStream" uid="uid://b68m1d56aacrs" path="res://audio/Galladin.mp3" id="7_26w7g"]
+[ext_resource type="AudioStream" uid="uid://cq24h2elsw0jh" path="res://audio/Alright.mp3" id="8_jup2y"]
+[ext_resource type="AudioStream" uid="uid://bbk57echikl7s" path="res://audio/snow.mp3" id="9_2k8cq"]
+
+[node name="GerenciadorMusica" type="AudioStreamPlayer" unique_id=1368727156]
+script = ExtResource("1_qxekl")
+playlist = Array[AudioStream]([ExtResource("2_t2oej"), ExtResource("3_usmov"), ExtResource("4_p3827"), ExtResource("5_0ofup"), ExtResource("6_f388x"), ExtResource("7_26w7g"), ExtResource("8_jup2y"), ExtResource("9_2k8cq")])

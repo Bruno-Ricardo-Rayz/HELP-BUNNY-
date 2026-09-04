@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://c5m5r75g858cf"]
+
+[ext_resource type="Script" uid="uid://ynbfapf2jwja" path="res://projectile.gd" id="1_a85iw"]
+[ext_resource type="Texture2D" uid="uid://cy5dxy5s2j47v" path="res://cenoura_normal-removebg-preview.png" id="2_dgwo2"]
+[ext_resource type="AudioStream" uid="uid://gs2deotkc6oe" path="res://audio/projetil.wav" id="2_sxmqc"]
+[ext_resource type="Texture2D" uid="uid://c77thg6ubuqny" path="res://cenoura_de_fogo-removebg-preview.png" id="3_sxmqc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xvf33"]
+size = Vector2(26, 9)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ebum8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_dgwo2")
+}],
+"loop": 1,
+"name": &"carrot",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_sxmqc")
+}],
+"loop": 1,
+"name": &"carrot fire",
+"speed": 5.0
+}]
+
+[node name="Projectile" type="Area2D" unique_id=1890799073]
+collision_layer = 0
+script = ExtResource("1_a85iw")
+velocidade = 300.0
+tempo_digitacao = 4.0
+som_disparo = ExtResource("2_sxmqc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2117163400]
+position = Vector2(3, 5.5)
+shape = SubResource("RectangleShape2D_xvf33")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=29327825]
+position = Vector2(1, 5)
+rotation = 1.5620697
+scale = Vector2(0.08, 0.08)
+sprite_frames = SubResource("SpriteFrames_ebum8")
+animation = &"carrot"

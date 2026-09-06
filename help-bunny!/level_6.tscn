@@ -14,6 +14,10 @@
 [ext_resource type="PackedScene" uid="uid://cid2d1ac2h482" path="res://portal.tscn" id="12_ejlf8"]
 [ext_resource type="PackedScene" uid="uid://58vd55nbw05v" path="res://Player.tscn" id="13_yh5ew"]
 [ext_resource type="PackedScene" uid="uid://cl5od3hqjypr" path="res://hud.tscn" id="14_yh5ew"]
+[ext_resource type="PackedScene" uid="uid://dnx8x3ilxhgy5" path="res://obstacle.tscn" id="15_0jxqs"]
+[ext_resource type="PackedScene" uid="uid://cd247oou2asga" path="res://checkpoint.tscn" id="16_eu30q"]
+[ext_resource type="PackedScene" uid="uid://crsoxht4nw276" path="res://spawner_projectiles.tscn" id="17_pvmaq"]
+[ext_resource type="PackedScene" uid="uid://c5m5r75g858cf" path="res://projectile.tscn" id="18_tgxug"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vp58d"]
 texture = ExtResource("1_yxwl1")
@@ -317,8 +321,8 @@ motion_scale = Vector2(0, 1)
 motion_mirroring = Vector2(1152, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer" unique_id=88586620]
-position = Vector2(591, 313.49997)
-scale = Vector2(2.4625, 2.996323)
+position = Vector2(591, 250.99995)
+scale = Vector2(2.4625, 3.455882)
 texture = ExtResource("6_vp58d")
 
 [node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground" unique_id=217939959]
@@ -326,8 +330,8 @@ motion_scale = Vector2(0.1, 1)
 motion_mirroring = Vector2(1152, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2" unique_id=1910408640]
-position = Vector2(589, 422.00003)
-scale = Vector2(2.4604166, 2.8125)
+position = Vector2(589, 365.75)
+scale = Vector2(2.4604166, 3.226103)
 texture = ExtResource("7_3eqwd")
 
 [node name="ParallaxLayer3" type="ParallaxLayer" parent="ParallaxBackground" unique_id=2136233835]
@@ -335,8 +339,8 @@ motion_scale = Vector2(0.2, 1)
 motion_mirroring = Vector2(1152, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer3" unique_id=1097775563]
-position = Vector2(589, 628.99994)
-scale = Vector2(2.45625, 1.852941)
+position = Vector2(589, 605.49994)
+scale = Vector2(2.45625, 2.025735)
 texture = ExtResource("8_xo623")
 
 [node name="ParallaxLayer4" type="ParallaxLayer" parent="ParallaxBackground" unique_id=441744968]
@@ -344,8 +348,8 @@ motion_scale = Vector2(0.3, 1)
 motion_mirroring = Vector2(1152, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer4" unique_id=944404868]
-position = Vector2(588, 562.99994)
-scale = Vector2(2.45625, 1.852941)
+position = Vector2(588, 538.49994)
+scale = Vector2(2.45625, 2.033088)
 texture = ExtResource("10_yh5ew")
 
 [node name="ParallaxLayer5" type="ParallaxLayer" parent="ParallaxBackground" unique_id=1659280413]
@@ -353,8 +357,8 @@ motion_scale = Vector2(0.4, 1)
 motion_mirroring = Vector2(1152, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer5" unique_id=639957973]
-position = Vector2(590, 533.99994)
-scale = Vector2(2.45625, 2.1985295)
+position = Vector2(590, 503.99994)
+scale = Vector2(2.45625, 2.4191177)
 texture = ExtResource("9_ejlf8")
 
 [node name="Portal" parent="." unique_id=479594053 instance=ExtResource("12_ejlf8")]
@@ -366,3 +370,48 @@ position = Vector2(285, 95)
 
 [node name="HUD" parent="." unique_id=1031871079 instance=ExtResource("14_yh5ew")]
 player_node = NodePath("../Player")
+
+[node name="Obstacle" parent="." unique_id=1030185075 instance=ExtResource("15_0jxqs")]
+position = Vector2(1289, 567)
+
+[node name="Obstacle2" parent="." unique_id=1905568551 instance=ExtResource("15_0jxqs")]
+position = Vector2(3089, 657)
+
+[node name="Obstacle3" parent="." unique_id=1402934608 instance=ExtResource("15_0jxqs")]
+position = Vector2(4737, 657)
+
+[node name="Obstacle4" parent="." unique_id=1713495282 instance=ExtResource("15_0jxqs")]
+position = Vector2(6564, 564)
+
+[node name="Obstacle5" parent="." unique_id=1687331121 instance=ExtResource("15_0jxqs")]
+position = Vector2(7818, 658)
+
+[node name="Obstacle6" parent="." unique_id=1332673510 instance=ExtResource("15_0jxqs")]
+position = Vector2(9616, 562)
+
+[node name="Obstacle7" parent="." unique_id=1359108249 instance=ExtResource("15_0jxqs")]
+position = Vector2(11222, 658)
+
+[node name="Obstacle8" parent="." unique_id=1673962049 instance=ExtResource("15_0jxqs")]
+position = Vector2(12299, 561)
+
+[node name="Obstacle9" parent="." unique_id=1499549395 instance=ExtResource("15_0jxqs")]
+position = Vector2(13546, 554)
+
+[node name="Obstacle10" parent="." unique_id=1144928483 instance=ExtResource("15_0jxqs")]
+position = Vector2(14698, 556)
+
+[node name="Obstacle11" parent="." unique_id=564311575 instance=ExtResource("15_0jxqs")]
+position = Vector2(16518, 656)
+
+[node name="Obstacle12" parent="." unique_id=2105780166 instance=ExtResource("15_0jxqs")]
+position = Vector2(19962, 747)
+
+[node name="Checkpoint" parent="." unique_id=1684101722 instance=ExtResource("16_eu30q")]
+position = Vector2(13317.001, 538)
+
+[node name="SpawnerProjectiles" parent="." unique_id=2110268426 instance=ExtResource("17_pvmaq")]
+position = Vector2(18611, 504)
+
+[node name="Projectile" parent="SpawnerProjectiles" unique_id=1890799073 instance=ExtResource("18_tgxug")]
+position = Vector2(-3, 2)

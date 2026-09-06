@@ -54,19 +54,23 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ygooy"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tnhlw"]
+radius = 5.010417
+height = 18.000002
 
 [node name="Checkpoint" type="Area2D" unique_id=1684101722]
+scale = Vector2(6, 6)
 script = ExtResource("1_r6hke")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=988461108]
-position = Vector2(-2, 2.3841858e-07)
-scale = Vector2(0.21195656, 0.13739496)
+position = Vector2(-1.1920929e-07, -0.16666627)
+scale = Vector2(0.20984302, 0.12808125)
 sprite_frames = SubResource("SpriteFrames_0h4gh")
 animation = &"carrot"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=434710055]
-shape = SubResource("RectangleShape2D_ygooy")
+position = Vector2(0.65624976, 0.33333325)
+shape = SubResource("CapsuleShape2D_tnhlw")
 
 [node name="SomCheckpoint" type="AudioStreamPlayer" parent="." unique_id=675907561]
 stream = ExtResource("3_tnhlw")

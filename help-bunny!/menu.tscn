@@ -66,6 +66,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 color = Color(0, 0, 0, 1)
 
 [node name="Timer" type="Timer" parent="." unique_id=1136886839]
@@ -118,6 +119,7 @@ offset_right = 547.0
 offset_bottom = 456.0
 scale = Vector2(0.1, 0.1)
 pivot_offset = Vector2(273.5, 228)
+mouse_filter = 2
 texture = ExtResource("6_l48gv")
 expand_mode = 1
 
@@ -133,6 +135,7 @@ offset_bottom = 345.0
 grow_horizontal = 2
 scale = Vector2(0.5, 0.5)
 pivot_offset = Vector2(383.5, 162.5)
+mouse_filter = 2
 texture = ExtResource("7_ecwwl")
 
 [node name="IconeIA" type="TextureRect" parent="UI" unique_id=118226827]
@@ -148,6 +151,7 @@ offset_right = 1028.0
 offset_bottom = 548.0
 grow_horizontal = 0
 grow_vertical = 0
+mouse_filter = 2
 texture = ExtResource("8_kk3ma")
 expand_mode = 1
 

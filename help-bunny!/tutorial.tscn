@@ -11,6 +11,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_yb1ct")
+primeira_fase = "uid://i3wwlkem0ndq"
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1434136350]
 layout_mode = 1

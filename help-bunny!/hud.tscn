@@ -8,6 +8,7 @@
 
 [node name="HUD" type="CanvasLayer" unique_id=1031871079]
 script = ExtResource("1_37p78")
+tempo_restante = 90.0
 
 [node name="LabelTempo" type="Label" parent="." unique_id=1626465811]
 offset_left = 467.0

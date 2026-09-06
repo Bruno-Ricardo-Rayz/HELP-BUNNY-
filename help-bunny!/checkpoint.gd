@@ -2,15 +2,21 @@ extends Area2D
 
 var ativado: bool = false
 
+# AJUSTE DA ALTURA DE RESPAWN:
+# Quanto maior o número negativo aqui, mais ALTO o coelho vai nascer.
+const OFFSET_RESPAWN_Y: float = -120.0
+
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var som_checkpoint: AudioStreamPlayer = $SomCheckpoint
 
 func _ready():
-	body_entered.connect(_on_body_entered)
+	if not body_entered.is_connected(_on_body_entered):
+		body_entered.connect(_on_body_entered)
 	
+	# Estado inicial: Parado no primeiro frame (cenoura inteira)
 	if is_instance_valid(animated_sprite):
 		animated_sprite.stop()
-		animated_sprite.frame = 0 # Fica inteira parada no chão esperando o player
+		animated_sprite.frame = 0
 
 func _on_body_entered(body):
 	if not ativado and (body.name == "Player" or body.is_in_group("player")):
@@ -20,24 +26,29 @@ func _on_body_entered(body):
 		if is_instance_valid(som_checkpoint):
 			som_checkpoint.play()
 		
-		# Toca a animação UMA VEZ ao ser coletada
+		# Toca a animação da cenoura sendo comida
 		if is_instance_valid(animated_sprite):
+			if not animated_sprite.animation_finished.is_connected(_on_animacao_terminou):
+				animated_sprite.animation_finished.connect(_on_animacao_terminou)
+			
 			animated_sprite.frame = 0
 			animated_sprite.play("carrot")
 		
-		# Salva o checkpoint no GameData
-		if GameData:
+		# Salva a posição do checkpoint BEM MAIS PARA CIMA (-120px)
+		if GameData and GameData.has_method("salvar_checkpoint"):
 			var caminho_fase = get_tree().current_scene.scene_file_path
-			GameData.salvar_checkpoint(caminho_fase, global_position)
+			var pos_respawn = global_position + Vector2(0, OFFSET_RESPAWN_Y)
+			
+			GameData.salvar_checkpoint(caminho_fase, pos_respawn)
+			print("Checkpoint salvo com sucesso! Posicao de Respawn: ", pos_respawn)
 		
-		# Faz o player parar por 2 segundos no estado de CHECKPOINT
+		# Trava a corrida do coelho por 2 segundos
 		if body.has_method("pausar_por_tempo"):
 			body.pausar_por_tempo(2.0)
-		
-		# Faz o pulso contínuo
-		iniciar_pulso_continuo()
 
-func iniciar_pulso_continuo():
-	var tween = create_tween().set_loops()
-	tween.tween_property(self, "scale", Vector2(1.25, 1.25), 0.5).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
-	tween.tween_property(self, "scale", Vector2(1.0, 1.0), 0.5).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+func _on_animacao_terminou():
+	# Trava no último frame da animação (cenoura toda comida)
+	if is_instance_valid(animated_sprite):
+		animated_sprite.stop()
+		var ultimo_frame = animated_sprite.sprite_frames.get_frame_count("carrot") - 1
+		animated_sprite.frame = max(0, ultimo_frame)

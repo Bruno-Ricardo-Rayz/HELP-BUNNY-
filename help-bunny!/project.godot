@@ -17,8 +17,8 @@ config/features=PackedStringArray("4.7", "Forward Plus")
 [autoload]
 
 GameData="*uid://bv80prd74oruc"
-Transition="*uid://t8xmwuwsuy82"
 GerenciadorMusica="*uid://kiesyb7fxhkw"
+Transition="*uid://bebqsjmkghk3k"
 
 [display]
 

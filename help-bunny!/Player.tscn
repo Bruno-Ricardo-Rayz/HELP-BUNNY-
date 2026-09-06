@@ -14,6 +14,7 @@
 [ext_resource type="AudioStream" uid="uid://djcl8kgfkr684" path="res://audio/perdeuvida.wav" id="12_d6rpx"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ebum8"]
+radius = 7.507404
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hp6x6"]
 atlas = ExtResource("2_wi0c6")
@@ -376,19 +377,18 @@ scale = Vector2(6, 6)
 script = ExtResource("1_dtqjt")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=813767028]
-position = Vector2(26.333334, 69.66667)
+position = Vector2(26.666668, 71.833336)
 shape = SubResource("CircleShape2D_ebum8")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1624441568]
-position = Vector2(27.16667, 70.16666)
+position = Vector2(26.999996, 70.49999)
 scale = Vector2(0.8906249, 0.90625)
 sprite_frames = SubResource("SpriteFrames_ebum8")
-animation = &"run"
-frame = 1
-frame_progress = 0.26070645
+animation = &"despertando"
+frame_progress = 0.2936362
 
 [node name="RayCast2D" type="RayCast2D" parent="." unique_id=1403463222]
-position = Vector2(26.333334, 70)
+position = Vector2(26.5, 72)
 target_position = Vector2(38, 0)
 collision_mask = 2
 

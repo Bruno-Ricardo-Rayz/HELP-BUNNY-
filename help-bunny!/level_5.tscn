@@ -14,6 +14,8 @@
 [ext_resource type="Texture2D" uid="uid://frfjyy8ci34j" path="res://Paralax background Pack/Green mountain/Green_Field.png" id="9_uws32"]
 [ext_resource type="Texture2D" uid="uid://tr4tjrubghp4" path="res://Paralax background Pack/Green mountain/Green_mountain.png" id="10_vcgqq"]
 [ext_resource type="Texture2D" uid="uid://qfketv2hd0yf" path="res://Paralax background Pack/Green mountain/Clouds.png" id="11_o1mlc"]
+[ext_resource type="PackedScene" uid="uid://58vd55nbw05v" path="res://Player.tscn" id="15_o1mlc"]
+[ext_resource type="PackedScene" uid="uid://cid2d1ac2h482" path="res://portal.tscn" id="16_jda3s"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mg3yy"]
 texture = ExtResource("1_t3h5c")
@@ -1263,3 +1265,10 @@ motion_mirroring = Vector2(1152, 0)
 position = Vector2(676.00006, 415)
 scale = Vector2(2.8166666, 4.290441)
 texture = ExtResource("10_vcgqq")
+
+[node name="Player" parent="." unique_id=381203669 instance=ExtResource("15_o1mlc")]
+position = Vector2(427, 77)
+
+[node name="Portal" parent="." unique_id=479594053 instance=ExtResource("16_jda3s")]
+position = Vector2(22023, 354)
+proxima_cena = "uid://cgfufgjmc7p5x"

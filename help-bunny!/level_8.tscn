@@ -952,7 +952,7 @@ position = Vector2(23479, 545)
 proxima_cena = "uid://bc1qtehuusicb"
 
 [node name="HUD" parent="." unique_id=1031871079 instance=ExtResource("12_ms1hu")]
-tempo_restante = 70.0
+tempo_restante = 75.0
 tamanho_minimo_palavra = 6
 tamanho_maximo_palavra = 7
 player_node = NodePath("../Player")

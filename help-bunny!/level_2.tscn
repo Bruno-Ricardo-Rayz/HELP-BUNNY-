@@ -22,6 +22,8 @@
 [ext_resource type="PackedScene" uid="uid://dnx8x3ilxhgy5" path="res://obstacle.tscn" id="20_i558w"]
 [ext_resource type="PackedScene" uid="uid://cl5od3hqjypr" path="res://hud.tscn" id="21_cuxq2"]
 [ext_resource type="PackedScene" uid="uid://cd247oou2asga" path="res://checkpoint.tscn" id="22_wvr33"]
+[ext_resource type="PackedScene" uid="uid://kiesyb7fxhkw" path="res://gerenciador_musica.tscn" id="23_6r3eb"]
+[ext_resource type="AudioStream" uid="uid://dbkk84eo7kp8l" path="res://audio/neve2.mp3" id="24_2pufk"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0s5r2"]
 texture = ExtResource("1_xdadj")
@@ -1196,7 +1198,7 @@ scale = Vector2(3.0364232, 5.6825814)
 texture = ExtResource("9_s77qv")
 
 [node name="Portal" parent="." unique_id=479594053 instance=ExtResource("18_5kfcu")]
-position = Vector2(20482, 1012)
+position = Vector2(20275, 1008)
 proxima_cena = "uid://b74irkwhgkaud"
 
 [node name="Obstacle" parent="." unique_id=1030185075 instance=ExtResource("20_i558w")]
@@ -1242,7 +1244,13 @@ position = Vector2(16767, 664)
 position = Vector2(17724, 465)
 
 [node name="HUD" parent="." unique_id=1031871079 instance=ExtResource("21_cuxq2")]
+tempo_restante = 85.0
+tamanho_maximo_palavra = 4
 player_node = NodePath("../Player")
 
 [node name="Checkpoint" parent="." unique_id=1684101722 instance=ExtResource("22_wvr33")]
-position = Vector2(10333, 343)
+position = Vector2(10301, 338)
+
+[node name="GerenciadorMusica" parent="." unique_id=1368727156 instance=ExtResource("23_6r3eb")]
+stream = ExtResource("24_2pufk")
+autoplay = true

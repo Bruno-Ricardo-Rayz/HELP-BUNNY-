@@ -2102,6 +2102,7 @@ tile_set = SubResource("TileSet_xvf33")
 position = Vector2(55, 230.00003)
 
 [node name="HUD" parent="." unique_id=1031871079 instance=ExtResource("12_utf53")]
+tamanho_maximo_palavra = 3
 player_node = NodePath("../Player")
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="." unique_id=409144505]
@@ -2147,7 +2148,7 @@ motion_scale = Vector2(0.4, 1)
 motion_mirroring = Vector2(1152, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer5" unique_id=520918978]
-position = Vector2(581, 549)
+position = Vector2(590.00006, 582)
 scale = Vector2(2.4081717, 2.2140906)
 texture = ExtResource("15_a0l56")
 

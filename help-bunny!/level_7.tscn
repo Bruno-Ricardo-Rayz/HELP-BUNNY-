@@ -12,6 +12,11 @@
 [ext_resource type="PackedScene" uid="uid://58vd55nbw05v" path="res://Player.tscn" id="10_w12s5"]
 [ext_resource type="PackedScene" uid="uid://cid2d1ac2h482" path="res://portal.tscn" id="11_p07bb"]
 [ext_resource type="PackedScene" uid="uid://cl5od3hqjypr" path="res://hud.tscn" id="12_p07bb"]
+[ext_resource type="PackedScene" uid="uid://dnx8x3ilxhgy5" path="res://obstacle.tscn" id="13_pfhdb"]
+[ext_resource type="PackedScene" uid="uid://cd247oou2asga" path="res://checkpoint.tscn" id="14_cvd2s"]
+[ext_resource type="PackedScene" uid="uid://crsoxht4nw276" path="res://spawner_projectiles.tscn" id="15_8t08o"]
+[ext_resource type="PackedScene" uid="uid://kiesyb7fxhkw" path="res://gerenciador_musica.tscn" id="16_anmol"]
+[ext_resource type="AudioStream" uid="uid://dsmg6bwvm11ug" path="res://audio/pasto1.mp3" id="17_hvfyj"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nak3m"]
 texture = ExtResource("1_2pghd")
@@ -151,8 +156,8 @@ motion_scale = Vector2(0, 1)
 motion_mirroring = Vector2(1152, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer" unique_id=264829549]
-position = Vector2(591, 250.49994)
-scale = Vector2(2.4625, 3.4595582)
+position = Vector2(591, 219.4999)
+scale = Vector2(2.4625, 3.6874998)
 texture = ExtResource("6_n5k06")
 
 [node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground" unique_id=184604772]
@@ -204,7 +209,69 @@ texture = ExtResource("10_cvd2s")
 position = Vector2(158, 107)
 
 [node name="Portal" parent="." unique_id=479594053 instance=ExtResource("11_p07bb")]
-position = Vector2(23220, 742)
+position = Vector2(23160, 742)
+proxima_cena = "uid://ch3wgk3b6ja88"
 
 [node name="HUD" parent="." unique_id=1031871079 instance=ExtResource("12_p07bb")]
+tempo_restante = 75.0
+tamanho_minimo_palavra = 5
+tamanho_maximo_palavra = 6
 player_node = NodePath("../Player")
+
+[node name="Obstacle" parent="." unique_id=1030185075 instance=ExtResource("13_pfhdb")]
+position = Vector2(1311, 564)
+
+[node name="Obstacle2" parent="." unique_id=353108052 instance=ExtResource("13_pfhdb")]
+position = Vector2(3523, 568)
+
+[node name="Obstacle3" parent="." unique_id=1669746862 instance=ExtResource("13_pfhdb")]
+position = Vector2(6475, 466)
+
+[node name="Obstacle4" parent="." unique_id=1073047656 instance=ExtResource("13_pfhdb")]
+position = Vector2(8490, 657)
+
+[node name="Obstacle5" parent="." unique_id=1140887354 instance=ExtResource("13_pfhdb")]
+position = Vector2(10684, 561)
+
+[node name="Obstacle6" parent="." unique_id=1922864397 instance=ExtResource("13_pfhdb")]
+position = Vector2(12041, 564)
+
+[node name="Obstacle7" parent="." unique_id=1435695181 instance=ExtResource("13_pfhdb")]
+position = Vector2(13315, 649)
+
+[node name="Obstacle9" parent="." unique_id=1915684220 instance=ExtResource("13_pfhdb")]
+position = Vector2(16733, 561)
+
+[node name="Obstacle10" parent="." unique_id=801666308 instance=ExtResource("13_pfhdb")]
+position = Vector2(18479, 1038)
+
+[node name="Obstacle11" parent="." unique_id=1388669337 instance=ExtResource("13_pfhdb")]
+position = Vector2(20671, 751)
+
+[node name="Obstacle12" parent="." unique_id=356961564 instance=ExtResource("13_pfhdb")]
+position = Vector2(21828, 754)
+
+[node name="Obstacle8" parent="." unique_id=1410959325 instance=ExtResource("13_pfhdb")]
+position = Vector2(14516, 559)
+
+[node name="Checkpoint" parent="." unique_id=1684101722 instance=ExtResource("14_cvd2s")]
+position = Vector2(13009.001, 628)
+
+[node name="SpawnerProjectiles" parent="." unique_id=2110268426 instance=ExtResource("15_8t08o")]
+position = Vector2(6135, 430)
+
+[node name="SpawnerProjectiles2" parent="." unique_id=1611561539 instance=ExtResource("15_8t08o")]
+position = Vector2(15098, 498)
+tempo_entre_spawns = 12.0
+
+[node name="SpawnerProjectiles4" parent="." unique_id=1684608226 instance=ExtResource("15_8t08o")]
+position = Vector2(24320, 480)
+tempo_entre_spawns = 21.0
+
+[node name="SpawnerProjectiles3" parent="." unique_id=1022647465 instance=ExtResource("15_8t08o")]
+position = Vector2(22394, 713)
+tempo_entre_spawns = 18.0
+
+[node name="GerenciadorMusica" parent="." unique_id=1368727156 instance=ExtResource("16_anmol")]
+stream = ExtResource("17_hvfyj")
+autoplay = true

@@ -2,9 +2,8 @@ extends Area2D
 
 var ativado: bool = false
 
-# AJUSTE DA ALTURA DE RESPAWN:
-# Quanto maior o número negativo aqui, mais ALTO o coelho vai nascer.
-const OFFSET_RESPAWN_Y: float = -120.0
+# OFFSET BEM MAIS ALTO: -450 pixels para o player nascer flutuando alto e cair no chão
+const OFFSET_RESPAWN_Y: float = -450.0
 
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var som_checkpoint: AudioStreamPlayer = $SomCheckpoint
@@ -34,15 +33,15 @@ func _on_body_entered(body):
 			animated_sprite.frame = 0
 			animated_sprite.play("carrot")
 		
-		# Salva a posição do checkpoint BEM MAIS PARA CIMA (-120px)
+		# Salva no GameData aplicando o offset extra em Y (-450px)
 		if GameData and GameData.has_method("salvar_checkpoint"):
 			var caminho_fase = get_tree().current_scene.scene_file_path
 			var pos_respawn = global_position + Vector2(0, OFFSET_RESPAWN_Y)
 			
 			GameData.salvar_checkpoint(caminho_fase, pos_respawn)
-			print("Checkpoint salvo com sucesso! Posicao de Respawn: ", pos_respawn)
+			print("Checkpoint salvo em: ", pos_respawn)
 		
-		# Trava a corrida do coelho por 2 segundos
+		# Trava a corrida por 2 segundos
 		if body.has_method("pausar_por_tempo"):
 			body.pausar_por_tempo(2.0)
 

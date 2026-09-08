@@ -945,7 +945,7 @@ scale = Vector2(2.45625, 4.147059)
 texture = ExtResource("8_ddlhw")
 
 [node name="Player" parent="." unique_id=381203669 groups=["player"] instance=ExtResource("10_mjcbx")]
-position = Vector2(121, 102)
+position = Vector2(20480, 84)
 
 [node name="Portal" parent="." unique_id=479594053 instance=ExtResource("11_ms1hu")]
 position = Vector2(23479, 545)
@@ -1046,7 +1046,7 @@ position = Vector2(18243, 368)
 position = Vector2(19718, 553)
 
 [node name="Obstacle17" parent="." unique_id=1431876532 instance=ExtResource("14_w53co")]
-position = Vector2(22648, 82)
+position = Vector2(22710, 86)
 
 [node name="GerenciadorMusica" parent="." unique_id=1368727156 instance=ExtResource("15_ebxmt")]
 stream = ExtResource("16_3ejit")

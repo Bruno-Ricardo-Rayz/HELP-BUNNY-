@@ -2148,8 +2148,8 @@ motion_scale = Vector2(0.4, 1)
 motion_mirroring = Vector2(1152, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer5" unique_id=520918978]
-position = Vector2(590.00006, 582)
-scale = Vector2(2.4081717, 2.2140906)
+position = Vector2(644.0194, 582)
+scale = Vector2(2.6332526, 2.2140906)
 texture = ExtResource("15_a0l56")
 
 [node name="ParallaxLayer6" type="ParallaxLayer" parent="ParallaxBackground" unique_id=1207655836]
@@ -2158,12 +2158,12 @@ motion_scale = Vector2(0.5, 1)
 motion_mirroring = Vector2(1152, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer6" unique_id=382284085]
-position = Vector2(581, 222)
-scale = Vector2(3.003898, 3.7442155)
+position = Vector2(584.6258, 222)
+scale = Vector2(3.0227823, 3.7442155)
 texture = ExtResource("16_eghdg")
 
 [node name="Portal" parent="." unique_id=479594053 instance=ExtResource("18_etsyl")]
-position = Vector2(17987, 477)
+position = Vector2(17427, 483)
 proxima_cena = "uid://bpygiiyrvwa8p"
 
 [node name="Obstacle" parent="." unique_id=1030185075 instance=ExtResource("18_a0l56")]

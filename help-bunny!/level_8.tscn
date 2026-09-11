@@ -945,7 +945,7 @@ scale = Vector2(2.45625, 4.147059)
 texture = ExtResource("8_ddlhw")
 
 [node name="Player" parent="." unique_id=381203669 groups=["player"] instance=ExtResource("10_mjcbx")]
-position = Vector2(20480, 84)
+position = Vector2(87, 103.00001)
 
 [node name="Portal" parent="." unique_id=479594053 instance=ExtResource("11_ms1hu")]
 position = Vector2(23479, 545)

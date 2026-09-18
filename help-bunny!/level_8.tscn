@@ -968,6 +968,7 @@ scale = Vector2(6, 6)
 [node name="SpawnerProjectiles3" parent="." unique_id=297598283 instance=ExtResource("13_ddlhw")]
 position = Vector2(11040, 526)
 scale = Vector2(6, 6)
+tempo_entre_spawns = 10.0
 
 [node name="SpawnerProjectiles5" parent="." unique_id=1482209026 instance=ExtResource("13_ddlhw")]
 position = Vector2(16155.001, 51)
@@ -984,14 +985,17 @@ scale = Vector2(6, 6)
 [node name="SpawnerProjectiles8" parent="." unique_id=1866506599 instance=ExtResource("13_ddlhw")]
 position = Vector2(24203, 357)
 scale = Vector2(6, 6)
+tempo_entre_spawns = 15.0
 
 [node name="SpawnerProjectiles9" parent="." unique_id=642587785 instance=ExtResource("13_ddlhw")]
 position = Vector2(24200, 282)
 scale = Vector2(6, 6)
+tempo_entre_spawns = 15.0
 
 [node name="SpawnerProjectiles10" parent="." unique_id=23646531 instance=ExtResource("13_ddlhw")]
 position = Vector2(24200, 202)
 scale = Vector2(6, 6)
+tempo_entre_spawns = 15.0
 
 [node name="SpawnerProjectiles4" parent="." unique_id=697938979 instance=ExtResource("13_ddlhw")]
 position = Vector2(9620, 526)

@@ -25,8 +25,9 @@ var dano_projetil_atual: int = 1
 @export var player_node: NodePath
 var player: CharacterBody2D
 
-# Cena do coração visual
+# Cenas instanciadas
 @export var cena_coracao: PackedScene
+@export var cena_game_over: PackedScene
 var lista_coracoes: Array = []
 
 # --- NÓS DA INTERFACE E ÁUDIOS ---
@@ -152,7 +153,6 @@ func gerar_palavra_projetil():
 func falha_projetil():
 	restaurar_tempo_normal()
 	
-	# Toca o áudio de erro
 	if is_instance_valid(som_erro):
 		som_erro.play()
 
@@ -164,7 +164,6 @@ func falha_projetil():
 func sucesso_projetil():
 	restaurar_tempo_normal()
 	
-	# Toca o áudio de acerto
 	if is_instance_valid(som_acerto):
 		som_acerto.play()
 
@@ -232,30 +231,35 @@ func validar_letra(letra_digitada: String):
 			aplicar_erro()
 
 func aplicar_erro():
-	# Toca o áudio de erro
 	if is_instance_valid(som_erro):
 		som_erro.play()
 
 	tempo_restante -= penalidade_atual
 	if tempo_restante < 0:
 		tempo_restante = 0
+		
+	aplicar_dano_player(1)
+
 	exibir_feedback("- " + str(penalidade_atual) + "s!", Color.RED)
 	if penalidade_atual < PENALIDADE_MAXIMA:
 		penalidade_atual += 1
-	gerar_nova_palavra()
+		
+	if GameData and "vida_atual" in GameData and GameData.vida_atual > 0:
+		gerar_nova_palavra()
 
 func sucesso_palavra():
-	# Toca o áudio de acerto
 	if is_instance_valid(som_acerto):
 		som_acerto.play()
 
 	ativo = false
 	if richtext_palavra:
 		richtext_palavra.text = ""
+		
 	tempo_restante += 3.0
 	atualizar_ui_tempo()
 	exibir_feedback("+3s! MUITO BEM!", Color.GREEN)
 	penalidade_atual = 5
+	
 	if player and player.has_method("pular_obstaculo_automaticamente"):
 		player.pular_obstaculo_automaticamente()
 
@@ -340,16 +344,29 @@ func game_over_tempo():
 	Engine.time_scale = 1.0
 	ativo = false
 	
-	# Para a música de fundo se houver gerenciador rodando
 	if GerenciadorMusica and GerenciadorMusica.has_method("parar_playlist"):
 		GerenciadorMusica.parar_playlist()
 
-	# Toca o efeito sonoro de Game Over
 	if is_instance_valid(som_game_over):
 		som_game_over.play()
 
 	if richtext_palavra:
-		richtext_palavra.text = "[center][color=red]GAME OVER![/color][/center]"
-		
+		richtext_palavra.text = ""
+
+	# Apenas interrompe as ações do player sem acionar o reload da cena
 	if player and player.has_method("morrer"):
 		player.morrer()
+
+	exibir_menu_game_over()
+
+func exibir_menu_game_over():
+	if get_node_or_null("GameOverScreen"):
+		return
+
+	if not cena_game_over:
+		cena_game_over = load("res://game_over_screen.tscn")
+
+	if cena_game_over:
+		var menu = cena_game_over.instantiate()
+		menu.name = "GameOverScreen"
+		add_child(menu)

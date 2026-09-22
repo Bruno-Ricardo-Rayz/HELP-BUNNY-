@@ -31,7 +31,6 @@ func _ready():
 	if GameData:
 		GameData.fase_atual = get_tree().current_scene.scene_file_path
 		
-		# Se já tem checkpoint registrado, pula a animação de acorda e começa correndo
 		if GameData.tem_checkpoint and GameData.pos_checkpoint != Vector2.ZERO:
 			global_position = GameData.pos_checkpoint
 			estado_atual = Estado.CORRENDO
@@ -43,7 +42,6 @@ func iniciar_sequencia_acordar():
 	acordando = true
 	tocar_animacao("sleep")
 	
-	# Sequência inicial: sleep -> despertando -> desperto -> idle -> começa a correr
 	await get_tree().create_timer(1.0).timeout
 	tocar_animacao("despertando")
 	
@@ -58,11 +56,9 @@ func iniciar_sequencia_acordar():
 	estado_atual = Estado.CORRENDO
 
 func _physics_process(delta):
-	# Se estiver morto, para o processamento de física de corrida
 	if estado_atual == Estado.MORTO:
 		return
 
-	# Aplica gravidade
 	if not is_on_floor():
 		velocity.y += gravidade * delta
 
@@ -76,13 +72,11 @@ func _physics_process(delta):
 			if not tocando_hurt:
 				tocar_animacao("run")
 			
-			# Pulo automático de degrau pequeno
 			if is_on_wall() and is_on_floor():
 				velocity.y = força_pulo_degrau
 				if is_instance_valid(som_pulo):
 					som_pulo.play()
 
-			# Detecta o Obstáculo
 			if raycast_obstaculo.is_colliding():
 				parar_no_obstaculo()
 
@@ -97,7 +91,6 @@ func _physics_process(delta):
 			if not tocando_hurt:
 				tocar_animacao("jump")
 			
-			# Quando pousar na plataforma oposta, volta a correr
 			if is_on_floor() and velocity.y >= 0:
 				estado_atual = Estado.CORRENDO
 
@@ -119,7 +112,6 @@ func pular_obstaculo_automaticamente():
 		velocity.x = impulso_horizontal_pulo
 		estado_atual = Estado.PULANDO
 		
-		# Toca o som do pulo ao saltar o obstáculo
 		if is_instance_valid(som_pulo):
 			som_pulo.play()
 		
@@ -129,17 +121,14 @@ func pular_obstaculo_automaticamente():
 # --- SISTEMA DE DANO, VIDA E DERROTA ---
 
 func tomar_dano(quantidade: int = 1):
-	# Desconta no GameData
 	if GameData:
 		GameData.vida_atual -= quantidade
 		if GameData.vida_atual < 0:
 			GameData.vida_atual = 0
 
-	# Toca o áudio de dano do coelho
 	if is_instance_valid(som_perdendo_vida):
 		som_perdendo_vida.play()
 
-	# Animação hurt e piscar vermelho
 	tocando_hurt = true
 	tocar_animacao("hurt")
 	
@@ -150,13 +139,11 @@ func tomar_dano(quantidade: int = 1):
 	await get_tree().create_timer(0.4).timeout
 	tocando_hurt = false
 
-	# Executa a morte se a vida zerar
 	if GameData and GameData.vida_atual <= 0:
 		morrer()
 
 func recuperar_vida(quantidade: int = 1):
 	if GameData:
-		# Só recupera e toca o som se realmente houver vida faltando
 		if GameData.vida_atual < GameData.vida_maxima:
 			GameData.vida_atual = min(GameData.vida_atual + quantidade, GameData.vida_maxima)
 			
@@ -170,15 +157,7 @@ func morrer():
 	estado_atual = Estado.MORTO
 	velocity = Vector2.ZERO
 	tocar_animacao("dead")
-	
-	await get_tree().create_timer(1.5).timeout
-	
 	Engine.time_scale = 1.0
-	
-	if Transition:
-		Transition.ir_para("reiniciar")
-	else:
-		get_tree().reload_current_scene()
 
 # --- PAUSA DE CHECKPOINT ---
 

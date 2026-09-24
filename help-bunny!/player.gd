@@ -2,10 +2,23 @@ extends CharacterBody2D
 
 # --- CONFIGURAÇÕES DE MOVIMENTO ---
 @export var velocidade_corrida: float = 450.0
-@export var força_pulo_degrau: float = -480.0     # Pulo curto para subir degraus
-@export var força_pulo_obstaculo: float = -650.0  # Altura do pulo para superar o buraco
-@export var impulso_horizontal_pulo: float = 520.0 # Distância para frente para atravessar o vão
+@export var velocidade_boost: float = 900.0
+
+# --- AJUSTES DE PULO DOS OBSTÁCULOS ---
+@export var força_pulo_degrau: float = -480.0     
+@export var força_pulo_obstaculo: float = -720.0  
+@export var impulso_horizontal_pulo: float = 600.0 
 @export var gravidade: float = 980.0
+
+# --- SISTEMA DE BOOST ---
+var boost_ativo: bool = false
+var chance_boost: float = 0.05  # Começa em 5%
+const CHANCE_MINIMA: float = 0.05
+const CHANCE_MAXIMA: float = 0.25 
+var timer_boost: Timer
+var tween_piscar: Tween
+var boost_recupera_vida: bool = true 
+var pausado_para_pulo_boost: bool = false 
 
 # --- ESTADOS DO COELHO ---
 enum Estado { DORMINDO, CORRENDO, PARADO, PULANDO, CHECKPOINT, MORTO }
@@ -24,6 +37,13 @@ var tocando_hurt: bool = false
 
 func _ready():
 	add_to_group("player")
+	
+	# Configura o Timer do Boost para 5 segundos
+	timer_boost = Timer.new()
+	timer_boost.wait_time = 5.0
+	timer_boost.one_shot = true
+	timer_boost.timeout.connect(_on_boost_terminou)
+	add_child(timer_boost)
 	
 	raycast_obstaculo.collide_with_areas = true
 	raycast_obstaculo.collide_with_bodies = true
@@ -67,7 +87,7 @@ func _physics_process(delta):
 			velocity.x = 0
 
 		Estado.CORRENDO:
-			velocity.x = velocidade_corrida
+			velocity.x = velocidade_boost if boost_ativo else velocidade_corrida
 			
 			if not tocando_hurt:
 				tocar_animacao("run")
@@ -78,7 +98,10 @@ func _physics_process(delta):
 					som_pulo.play()
 
 			if raycast_obstaculo.is_colliding():
-				parar_no_obstaculo()
+				if boost_ativo:
+					pular_obstaculo_com_pausa_boost()
+				else:
+					parar_no_obstaculo()
 
 		Estado.PARADO:
 			velocity.x = 0
@@ -100,6 +123,75 @@ func _physics_process(delta):
 
 	move_and_slide()
 
+# --- LÓGICA DE PAUSA DO BOOST NO OBSTÁCULO ---
+
+func pular_obstaculo_com_pausa_boost():
+	if pausado_para_pulo_boost:
+		return
+		
+	pausado_para_pulo_boost = true
+	estado_atual = Estado.PARADO
+	tocar_animacao("idle")
+	
+	await get_tree().create_timer(0.5).timeout
+	
+	pular_obstaculo_automaticamente()
+	pausado_para_pulo_boost = false
+
+# --- LÓGICA DE CHANCE E ATIVAÇÃO DO BOOST ---
+
+func ao_acertar_palavra():
+	var sorteio = randf()
+
+	if sorteio <= chance_boost and not boost_ativo:
+		ativar_boost()
+	else:
+		if chance_boost < CHANCE_MAXIMA:
+			chance_boost = min(chance_boost + 0.10, CHANCE_MAXIMA)
+
+func ativar_boost():
+	boost_ativo = true
+	chance_boost = CHANCE_MINIMA  # Reseta para 5%
+	timer_boost.start()
+	
+	iniciar_efeito_piscar()
+
+	if boost_recupera_vida:
+		recuperar_vida(1)
+		
+	boost_recupera_vida = not boost_recupera_vida
+	
+	# Esconde a palavra na UI durante o boost
+	get_tree().call_group("hud", "esconder_palavra_boost")
+	
+	if estado_atual == Estado.PARADO:
+		pular_obstaculo_com_pausa_boost()
+	else:
+		estado_atual = Estado.CORRENDO
+
+func _on_boost_terminou():
+	boost_ativo = false
+	parar_efeito_piscar()
+	# Volta a mostrar a palavra assim que o boost acaba
+	get_tree().call_group("hud", "iniciar_desafio_digitacao")
+
+# --- EFEITO VISUAL PISCAR (VERDE / BRANCO / AZUL) ---
+
+func iniciar_efeito_piscar():
+	parar_efeito_piscar()
+	
+	tween_piscar = create_tween().set_loops()
+	tween_piscar.tween_property(sprite, "modulate", Color(0.2, 1.0, 0.3, 1.0), 0.1) # Verde
+	tween_piscar.tween_property(sprite, "modulate", Color.WHITE, 0.1)             # Branco
+	tween_piscar.tween_property(sprite, "modulate", Color(0.2, 0.5, 1.0, 1.0), 0.1) # Azul
+	tween_piscar.tween_property(sprite, "modulate", Color.WHITE, 0.1)             # Branco
+
+func parar_efeito_piscar():
+	if tween_piscar and tween_piscar.is_running():
+		tween_piscar.kill()
+	if sprite:
+		sprite.modulate = Color.WHITE
+
 # --- FUNÇÕES DE CONTROLE ---
 
 func parar_no_obstaculo():
@@ -107,7 +199,8 @@ func parar_no_obstaculo():
 		estado_atual = Estado.PARADO
 
 func pular_obstaculo_automaticamente():
-	if estado_atual == Estado.PARADO:
+	# Garante que só pula se estiver no chão (evita o pulo no ar)
+	if (estado_atual == Estado.PARADO or boost_ativo) and is_on_floor():
 		velocity.y = força_pulo_obstaculo
 		velocity.x = impulso_horizontal_pulo
 		estado_atual = Estado.PULANDO
@@ -121,6 +214,9 @@ func pular_obstaculo_automaticamente():
 # --- SISTEMA DE DANO, VIDA E DERROTA ---
 
 func tomar_dano(quantidade: int = 1):
+	if boost_ativo:
+		return
+
 	if GameData:
 		GameData.vida_atual -= quantidade
 		if GameData.vida_atual < 0:
@@ -149,6 +245,8 @@ func recuperar_vida(quantidade: int = 1):
 			
 			if is_instance_valid(som_recuperando_vida):
 				som_recuperando_vida.play()
+				
+			get_tree().call_group("hud", "atualizar_ui_vida", true)
 
 func morrer():
 	if estado_atual == Estado.MORTO:
@@ -156,10 +254,9 @@ func morrer():
 		
 	estado_atual = Estado.MORTO
 	velocity = Vector2.ZERO
+	parar_efeito_piscar()
 	tocar_animacao("dead")
 	Engine.time_scale = 1.0
-
-# --- PAUSA DE CHECKPOINT ---
 
 func pausar_por_tempo(tempo_segundos: float = 2.0):
 	estado_atual = Estado.CHECKPOINT
@@ -169,8 +266,6 @@ func pausar_por_tempo(tempo_segundos: float = 2.0):
 	
 	if estado_atual == Estado.CHECKPOINT:
 		estado_atual = Estado.CORRENDO
-
-# --- FUNÇÃO AUXILIAR PARA TROCA DE ANIMAÇÕES ---
 
 func tocar_animacao(nome_animacao: String):
 	if sprite and sprite.sprite_frames and sprite.sprite_frames.has_animation(nome_animacao):

@@ -127,6 +127,12 @@ func _process(delta):
 # --- SISTEMA DE PROJÉTIL E CÂMERA LENTA ---
 
 func iniciar_desafio_projetil(projetil_node, tempo: float, dano: int):
+	# Se o player estiver no estado de boost, ignora o desafio e destroi o projétil
+	if player and "boost_ativo" in player and player.boost_ativo:
+		if is_instance_valid(projetil_node) and projetil_node.has_method("destruir_projetil"):
+			projetil_node.destruir_projetil()
+		return
+
 	modo_projetil = true
 	ativo = true
 	projetil_atual = projetil_node
@@ -168,6 +174,9 @@ func sucesso_projetil():
 		som_acerto.play()
 
 	exibir_feedback("DESVIADO!", Color.GREEN)
+	
+	# --- AVISA O PLAYER PARA CALCULAR O BOOST ---
+	get_tree().call_group("player", "ao_acertar_palavra")
 	
 	if GameData and GameData.vida_atual < GameData.vida_maxima:
 		if player and player.has_method("recuperar_vida"):
@@ -260,10 +269,25 @@ func sucesso_palavra():
 	exibir_feedback("+3s! MUITO BEM!", Color.GREEN)
 	penalidade_atual = 5
 	
+	# --- AVISA O PLAYER PARA CALCULAR O BOOST E SALTAR ---
+	get_tree().call_group("player", "ao_acertar_palavra")
+	
 	if player and player.has_method("pular_obstaculo_automaticamente"):
 		player.pular_obstaculo_automaticamente()
 
+# --- FUNÇÕES DE CONTROLE DE BOOST NA UI ---
+
+func esconder_palavra_boost():
+	ativo = false
+	palavra_atual = ""
+	texto_digitado = ""
+	if richtext_palavra:
+		richtext_palavra.text = ""
+
 func iniciar_desafio_digitacao():
+	# Impede o aparecimento de novas palavras se o Boost estiver ativo
+	if player and "boost_ativo" in player and player.boost_ativo:
+		return
 	ativo = true
 	penalidade_atual = 5
 	gerar_nova_palavra()
@@ -353,7 +377,6 @@ func game_over_tempo():
 	if richtext_palavra:
 		richtext_palavra.text = ""
 
-	# Apenas interrompe as ações do player sem acionar o reload da cena
 	if player and player.has_method("morrer"):
 		player.morrer()
 

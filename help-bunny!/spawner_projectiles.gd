@@ -27,6 +27,11 @@ func _on_timer_timeout():
 		timer.stop()
 		return
 
+	# Não lança projéteis se o Player estiver atualmente em Boost
+	var player = get_tree().get_first_node_in_group("player")
+	if player and "boost_ativo" in player and player.boost_ativo:
+		return
+
 	var tipo = sequencia_projeteis[indice_atual]
 	spawnar(tipo)
 	indice_atual += 1

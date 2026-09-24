@@ -23,10 +23,11 @@ func _ready():
 	# Toca a animação correspondente
 	if sprite:
 		if eh_fogo:
-			dano = 2
+			dano = 1 # Garantido em 1 de dano para o projétil de fogo
 			if sprite.sprite_frames and sprite.sprite_frames.has_animation("carrot fire"):
 				sprite.play("carrot fire")
 		else:
+			dano = 1 # Garantido em 1 de dano para o projétil normal
 			if sprite.sprite_frames and sprite.sprite_frames.has_animation("carrot"):
 				sprite.play("carrot")
 
@@ -68,7 +69,7 @@ func _on_body_entered(body):
 
 	# Verifica se atingiu o Player
 	if body.is_in_group("player") or body.name == "Player":
-		impactar_player()
+		processar_impacto(body)
 
 func _on_area_entered(area):
 	if not ativo or tempo_vida < 0.1:
@@ -80,7 +81,16 @@ func _on_area_entered(area):
 
 	# Se a área for do Player ou filha dele
 	if area.is_in_group("player") or area.get_parent().is_in_group("player"):
-		impactar_player()
+		var no_player = area if area.is_in_group("player") else area.get_parent()
+		processar_impacto(no_player)
+
+func processar_impacto(player_node: Node):
+	# Se o Player estiver em estado de BOOST, o projétil é simplesmente destruído sem efeito
+	if "boost_ativo" in player_node and player_node.boost_ativo:
+		destruir_projetil()
+		return
+
+	impactar_player()
 
 func impactar_player():
 	ativo = false

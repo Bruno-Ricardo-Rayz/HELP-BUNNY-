@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dmdc41y25ikp3"]
 
 [ext_resource type="Script" uid="uid://bd5f0yac5xgne" path="res://menu.gd" id="1_lti8b"]
+[ext_resource type="VideoStream" uid="uid://drtmk222e805k" path="res://video1.ogv" id="2_iqepy"]
 [ext_resource type="VideoStream" uid="uid://ci7d7q3h28b4y" path="res://video2.ogv" id="3_ytr4m"]
 [ext_resource type="VideoStream" uid="uid://df4fq2bqwaip3" path="res://video3.ogv" id="4_l48gv"]
 [ext_resource type="FontFile" uid="uid://cf5f4dvxuw0wr" path="res://BoldPixels.ttf" id="5_ytr4m"]
@@ -9,9 +10,6 @@
 [ext_resource type="Texture2D" uid="uid://delb2evag0e1l" path="res://Icon.png" id="8_kk3ma"]
 [ext_resource type="AudioStream" uid="uid://curjr74l8rc3l" path="res://audio/inicio.wav" id="8_nrnbx"]
 [ext_resource type="AudioStream" uid="uid://beihq0c5eg4gv" path="res://audio/creditos.wav" id="9_iqepy"]
-
-[sub_resource type="VideoStreamTheora" id="VideoStreamTheora_l48gv"]
-file = "res://Video1.ogv"
 
 [node name="Menu" type="Control" unique_id=1802964064]
 layout_mode = 3
@@ -30,7 +28,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-stream = SubResource("VideoStreamTheora_l48gv")
+stream = ExtResource("2_iqepy")
 autoplay = true
 expand = true
 

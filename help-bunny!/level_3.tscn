@@ -1412,6 +1412,7 @@ texture = ExtResource("12_m8gss")
 
 [node name="Player" parent="." unique_id=381203669 groups=["player"] instance=ExtResource("14_jvy75")]
 position = Vector2(233, 99)
+"força_pulo_obstaculo" = -620.0
 
 [node name="Portal" parent="." unique_id=479594053 instance=ExtResource("15_g0tlw")]
 position = Vector2(13746, 1230)

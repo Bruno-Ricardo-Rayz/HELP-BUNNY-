@@ -2171,7 +2171,7 @@ position = Vector2(1683, 700)
 scale = Vector2(2.4, 2.4)
 
 [node name="Obstacle2" parent="." unique_id=1916833038 instance=ExtResource("18_a0l56")]
-position = Vector2(3732.0002, 675)
+position = Vector2(3813, 683)
 scale = Vector2(2.4, 2.4)
 
 [node name="Obstacle3" parent="." unique_id=838663442 instance=ExtResource("18_a0l56")]
@@ -2215,7 +2215,7 @@ autoplay = true
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=686359507]
 z_index = 2
-position = Vector2(9745, -236)
+position = Vector2(9751, -157)
 amount = 500
 emission_shape = 3
 emission_rect_extents = Vector2(10000, 300)

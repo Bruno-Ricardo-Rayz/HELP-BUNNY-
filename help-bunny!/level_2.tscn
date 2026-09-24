@@ -1140,6 +1140,7 @@ tile_set = SubResource("TileSet_ckb4l")
 
 [node name="Player" parent="." unique_id=381203669 groups=["player"] instance=ExtResource("19_i558w")]
 position = Vector2(83, 106.00001)
+"força_pulo_obstaculo" = -720.0
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="." unique_id=582823965]
 
@@ -1235,7 +1236,7 @@ position = Vector2(13692, 752)
 position = Vector2(14651, 658)
 
 [node name="Obstacle13" parent="." unique_id=1269407518 instance=ExtResource("20_i558w")]
-position = Vector2(15625, 851)
+position = Vector2(15646, 853)
 
 [node name="Obstacle14" parent="." unique_id=1150345767 instance=ExtResource("20_i558w")]
 position = Vector2(16767, 664)

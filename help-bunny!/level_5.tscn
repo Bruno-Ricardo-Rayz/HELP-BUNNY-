@@ -1304,7 +1304,7 @@ position = Vector2(9564, 367)
 position = Vector2(11875, 459)
 
 [node name="Obstacle7" parent="." unique_id=205186155 instance=ExtResource("18_tkh5q")]
-position = Vector2(14286, 363)
+position = Vector2(14313, 363)
 
 [node name="Obstacle8" parent="." unique_id=647013313 instance=ExtResource("18_tkh5q")]
 position = Vector2(15407, 369)

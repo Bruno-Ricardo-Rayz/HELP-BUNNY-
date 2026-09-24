@@ -2,11 +2,11 @@ extends CharacterBody2D
 
 # --- CONFIGURAÇÕES DE MOVIMENTO ---
 @export var velocidade_corrida: float = 450.0
-@export var velocidade_boost: float = 900.0
+@export var velocidade_boost: float = 700.0
 
 # --- AJUSTES DE PULO DOS OBSTÁCULOS ---
 @export var força_pulo_degrau: float = -480.0     
-@export var força_pulo_obstaculo: float = -720.0  
+@export var força_pulo_obstaculo: float = -620.0  
 @export var impulso_horizontal_pulo: float = 600.0 
 @export var gravidade: float = 980.0
 
@@ -14,7 +14,7 @@ extends CharacterBody2D
 var boost_ativo: bool = false
 var chance_boost: float = 0.05  # Começa em 5%
 const CHANCE_MINIMA: float = 0.05
-const CHANCE_MAXIMA: float = 0.25 
+const CHANCE_MAXIMA: float = 0.15 
 var timer_boost: Timer
 var tween_piscar: Tween
 var boost_recupera_vida: bool = true 

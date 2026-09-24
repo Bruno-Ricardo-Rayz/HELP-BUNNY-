@@ -379,13 +379,13 @@ player_node = NodePath("../Player")
 position = Vector2(1289, 567)
 
 [node name="Obstacle2" parent="." unique_id=1905568551 instance=ExtResource("15_0jxqs")]
-position = Vector2(3089, 657)
+position = Vector2(3123, 658)
 
 [node name="Obstacle3" parent="." unique_id=1402934608 instance=ExtResource("15_0jxqs")]
-position = Vector2(4737, 657)
+position = Vector2(4779, 658)
 
 [node name="Obstacle4" parent="." unique_id=1713495282 instance=ExtResource("15_0jxqs")]
-position = Vector2(6564, 564)
+position = Vector2(6596, 564)
 
 [node name="Obstacle5" parent="." unique_id=1687331121 instance=ExtResource("15_0jxqs")]
 position = Vector2(7818, 658)

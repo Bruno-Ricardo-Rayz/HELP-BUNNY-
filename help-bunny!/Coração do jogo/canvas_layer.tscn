@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://defkwaithonbq"]
 
-[ext_resource type="Script" uid="uid://5d1bk4aamhh" path="res://Mecanicas/input_overlay.gd" id="1_v2lfg"]
+[ext_resource type="Script" uid="uid://5d1bk4aamhh" path="res://Coração do jogo/input_overlay.gd" id="1_v2lfg"]
 
 [node name="CanvasLayer" type="CanvasLayer" unique_id=1031739650]
 

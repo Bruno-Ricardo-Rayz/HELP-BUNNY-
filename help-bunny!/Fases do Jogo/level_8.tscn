@@ -10,10 +10,10 @@
 [ext_resource type="Texture2D" uid="uid://qfketv2hd0yf" path="res://Artes e sprites/Paralax background Pack/Green mountain/Clouds.png" id="7_ms1hu"]
 [ext_resource type="Texture2D" uid="uid://tr4tjrubghp4" path="res://Artes e sprites/Paralax background Pack/Green mountain/Green_mountain.png" id="8_ddlhw"]
 [ext_resource type="PackedScene" uid="uid://58vd55nbw05v" path="res://Player/Player.tscn" id="10_mjcbx"]
-[ext_resource type="PackedScene" uid="uid://cid2d1ac2h482" path="res://Mecanicas/portal.tscn" id="11_ms1hu"]
+[ext_resource type="PackedScene" uid="uid://cid2d1ac2h482" path="res://Coração do jogo/portal.tscn" id="11_ms1hu"]
 [ext_resource type="PackedScene" uid="uid://cl5od3hqjypr" path="res://Coração do jogo/hud.tscn" id="12_ms1hu"]
-[ext_resource type="PackedScene" uid="uid://crsoxht4nw276" path="res://Mecanicas/spawner_projectiles.tscn" id="13_ddlhw"]
-[ext_resource type="PackedScene" uid="uid://dnx8x3ilxhgy5" path="res://Mecanicas/obstacle.tscn" id="14_w53co"]
+[ext_resource type="PackedScene" uid="uid://crsoxht4nw276" path="res://Coração do jogo/spawner_projectiles.tscn" id="13_ddlhw"]
+[ext_resource type="PackedScene" uid="uid://dnx8x3ilxhgy5" path="res://Coração do jogo/obstacle.tscn" id="14_w53co"]
 [ext_resource type="PackedScene" uid="uid://kiesyb7fxhkw" path="res://Coração do jogo/gerenciador_musica.tscn" id="15_ebxmt"]
 [ext_resource type="AudioStream" uid="uid://cg1nu65qdlclp" path="res://Audio/pasto2.mp3" id="16_3ejit"]
 

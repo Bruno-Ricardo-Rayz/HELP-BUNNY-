@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://c5m5r75g858cf"]
 
-[ext_resource type="Script" uid="uid://ynbfapf2jwja" path="res://Mecanicas/projectile.gd" id="1_a85iw"]
+[ext_resource type="Script" uid="uid://ynbfapf2jwja" path="res://Coração do jogo/projectile.gd" id="1_a85iw"]
 [ext_resource type="Texture2D" uid="uid://cy5dxy5s2j47v" path="res://Artes e sprites/cenoura_normal-removebg-preview.png" id="2_dgwo2"]
 [ext_resource type="AudioStream" uid="uid://gs2deotkc6oe" path="res://Audio/projetil.wav" id="2_sxmqc"]
 [ext_resource type="Texture2D" uid="uid://c77thg6ubuqny" path="res://Artes e sprites/cenoura_de_fogo-removebg-preview.png" id="3_sxmqc"]

@@ -45,8 +45,21 @@ func _input(event):
 		voltar_ao_menu()
 
 func voltar_ao_menu():
+	if not rolando and modulate.a == 0.0:
+		return # Evita executar a transição duas vezes seguidas
+		
 	rolando = false
-	var tween = create_tween()
-	tween.tween_property(self, "modulate:a", 0.0, 0.8)
-	await tween.finished
-	get_tree().change_scene_to_file("res://menu.tscn")
+	
+	# Se o sistema de transição global existir, usa ele para mudar de cena suavemente
+	if Engine.has_singleton("Transition") or get_node_or_null("/root/Transition"):
+		Transition.ir_para("res://Coração do jogo/menu.tscn")
+	else:
+		var tween = create_tween()
+		tween.tween_property(self, "modulate:a", 0.0, 0.8)
+		await tween.finished
+		
+		# Tenta carregar do caminho novo ou faz o fallback caso esteja no antigo
+		if FileAccess.file_exists("res://Coração do jogo/menu.tscn"):
+			get_tree().change_scene_to_file("res://Coração do jogo/menu.tscn")
+		else:
+			get_tree().change_scene_to_file("res://menu.tscn")

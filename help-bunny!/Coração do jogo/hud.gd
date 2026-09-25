@@ -53,11 +53,19 @@ func _ready():
 	if richtext_palavra:
 		richtext_palavra.text = ""
 
-	carregar_dicionario("res://dicionario.txt")
+	# Tenta carregar o dicionário no novo caminho ou na raiz caso ainda esteja lá
+	if FileAccess.file_exists("res://Coração do jogo/dicionario.txt"):
+		carregar_dicionario("res://Coração do jogo/dicionario.txt")
+	else:
+		carregar_dicionario("res://dicionario.txt")
+		
 	atualizar_ui_tempo()
 	
 	if not cena_coracao:
-		cena_coracao = load("res://coracao_ui.tscn")
+		if FileAccess.file_exists("res://Coração do jogo/coracao_ui.tscn"):
+			cena_coracao = load("res://Coração do jogo/coracao_ui.tscn")
+		else:
+			cena_coracao = load("res://coracao_ui.tscn")
 		
 	inicializar_coracoes_ui()
 
@@ -127,7 +135,6 @@ func _process(delta):
 # --- SISTEMA DE PROJÉTIL E CÂMERA LENTA ---
 
 func iniciar_desafio_projetil(projetil_node, tempo: float, dano: int):
-	# Se o player estiver no estado de boost, ignora o desafio e destroi o projétil
 	if player and "boost_ativo" in player and player.boost_ativo:
 		if is_instance_valid(projetil_node) and projetil_node.has_method("destruir_projetil"):
 			projetil_node.destruir_projetil()
@@ -175,7 +182,6 @@ func sucesso_projetil():
 
 	exibir_feedback("DESVIADO!", Color.GREEN)
 	
-	# --- AVISA O PLAYER PARA CALCULAR O BOOST ---
 	get_tree().call_group("player", "ao_acertar_palavra")
 	
 	if GameData and GameData.vida_atual < GameData.vida_maxima:
@@ -206,7 +212,10 @@ func cancelar_desafio_projetil_por_colisao(dano: int):
 func _unhandled_input(event):
 	if event.is_action_pressed("ui_cancel"):
 		Engine.time_scale = 1.0
-		get_tree().change_scene_to_file("res://menu.tscn")
+		if Transition:
+			Transition.ir_para("res://Coração do jogo/menu.tscn")
+		else:
+			get_tree().change_scene_to_file("res://Coração do jogo/menu.tscn")
 		return
 
 	if not ativo:
@@ -269,7 +278,6 @@ func sucesso_palavra():
 	exibir_feedback("+3s! MUITO BEM!", Color.GREEN)
 	penalidade_atual = 5
 	
-	# --- AVISA O PLAYER PARA CALCULAR O BOOST E SALTAR ---
 	get_tree().call_group("player", "ao_acertar_palavra")
 	
 	if player and player.has_method("pular_obstaculo_automaticamente"):
@@ -285,7 +293,6 @@ func esconder_palavra_boost():
 		richtext_palavra.text = ""
 
 func iniciar_desafio_digitacao():
-	# Impede o aparecimento de novas palavras se o Boost estiver ativo
 	if player and "boost_ativo" in player and player.boost_ativo:
 		return
 	ativo = true
@@ -387,7 +394,10 @@ func exibir_menu_game_over():
 		return
 
 	if not cena_game_over:
-		cena_game_over = load("res://game_over_screen.tscn")
+		if FileAccess.file_exists("res://Coração do jogo/game_over_screen.tscn"):
+			cena_game_over = load("res://Coração do jogo/game_over_screen.tscn")
+		else:
+			cena_game_over = load("res://game_over_screen.tscn")
 
 	if cena_game_over:
 		var menu = cena_game_over.instantiate()

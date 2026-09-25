@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cd247oou2asga"]
 
-[ext_resource type="Script" uid="uid://bkxb5k38ledb2" path="res://Mecanicas/checkpoint.gd" id="1_r6hke"]
+[ext_resource type="Script" uid="uid://bkxb5k38ledb2" path="res://Coração do jogo/checkpoint.gd" id="1_r6hke"]
 [ext_resource type="Texture2D" uid="uid://d1rem8mjnlxph" path="res://Artes e sprites/checkponit_carrot-removebg-preview.png" id="2_tnhlw"]
 [ext_resource type="AudioStream" uid="uid://b51k4sjkjpsjb" path="res://Audio/freesound_community-eating-a-carrot-88786.mp3" id="3_tnhlw"]
 

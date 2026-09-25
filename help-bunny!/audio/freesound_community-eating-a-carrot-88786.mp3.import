@@ -3,12 +3,12 @@
 importer="mp3"
 type="AudioStreamMP3"
 uid="uid://b51k4sjkjpsjb"
-path="res://.godot/imported/freesound_community-eating-a-carrot-88786.mp3-1caca1ef3650d7647aade3c96e904905.mp3str"
+path="res://.godot/imported/freesound_community-eating-a-carrot-88786.mp3-25ca9c04dac93e4cc1ae24a568263358.mp3str"
 
 [deps]
 
-source_file="res://Audio/freesound_community-eating-a-carrot-88786.mp3"
-dest_files=["res://.godot/imported/freesound_community-eating-a-carrot-88786.mp3-1caca1ef3650d7647aade3c96e904905.mp3str"]
+source_file="res://audio/freesound_community-eating-a-carrot-88786.mp3"
+dest_files=["res://.godot/imported/freesound_community-eating-a-carrot-88786.mp3-25ca9c04dac93e4cc1ae24a568263358.mp3str"]
 
 [params]
 

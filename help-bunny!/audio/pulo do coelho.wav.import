@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://c1tjtq2mdrfpl"
-path="res://.godot/imported/pulo do coelho.wav-b3b1ad5b69e259e4a704291e367e2782.sample"
+path="res://.godot/imported/pulo do coelho.wav-8d782f10bf018f20ac3a941868cced33.sample"
 
 [deps]
 
-source_file="res://Audio/pulo do coelho.wav"
-dest_files=["res://.godot/imported/pulo do coelho.wav-b3b1ad5b69e259e4a704291e367e2782.sample"]
+source_file="res://audio/pulo do coelho.wav"
+dest_files=["res://.godot/imported/pulo do coelho.wav-8d782f10bf018f20ac3a941868cced33.sample"]
 
 [params]
 

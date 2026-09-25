@@ -3,12 +3,12 @@
 importer="mp3"
 type="AudioStreamMP3"
 uid="uid://be2k0uj83x2a6"
-path="res://.godot/imported/caverna-1.mp3-45907cab57e4080100b1288f25ce1a4c.mp3str"
+path="res://.godot/imported/caverna-1.mp3-d6390f61e5bb6895aad24d49e14bb981.mp3str"
 
 [deps]
 
-source_file="res://Audio/caverna-1.mp3"
-dest_files=["res://.godot/imported/caverna-1.mp3-45907cab57e4080100b1288f25ce1a4c.mp3str"]
+source_file="res://audio/caverna-1.mp3"
+dest_files=["res://.godot/imported/caverna-1.mp3-d6390f61e5bb6895aad24d49e14bb981.mp3str"]
 
 [params]
 

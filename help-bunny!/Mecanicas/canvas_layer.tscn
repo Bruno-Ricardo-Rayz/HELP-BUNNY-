@@ -1,0 +1,327 @@
+[gd_scene format=3 uid="uid://defkwaithonbq"]
+
+[ext_resource type="Script" uid="uid://5d1bk4aamhh" path="res://Mecanicas/input_overlay.gd" id="1_v2lfg"]
+
+[node name="CanvasLayer" type="CanvasLayer" unique_id=1031739650]
+
+[node name="InputOverlay" type="Control" parent="." unique_id=1050315353]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -15.999998
+offset_top = 472.0
+offset_right = -616.0
+offset_bottom = 64.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.8, 0.8)
+script = ExtResource("1_v2lfg")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="InputOverlay" unique_id=89540699]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -436.0
+offset_top = -172.0
+grow_horizontal = 0
+grow_vertical = 0
+scale = Vector2(0.7, 0.7)
+
+[node name="Linha1" type="HBoxContainer" parent="InputOverlay/VBoxContainer" unique_id=1432938483]
+layout_mode = 2
+alignment = 1
+
+[node name="Q" type="ColorRect" parent="InputOverlay/VBoxContainer/Linha1" unique_id=772202584]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="InputOverlay/VBoxContainer/Linha1/Q" unique_id=589347953]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Q"
+
+[node name="W" type="ColorRect" parent="InputOverlay/VBoxContainer/Linha1" unique_id=902353120]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="InputOverlay/VBoxContainer/Linha1/W" unique_id=1472835896]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "W"
+
+[node name="E" type="ColorRect" parent="InputOverlay/VBoxContainer/Linha1" unique_id=739508155]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="InputOverlay/VBoxContainer/Linha1/E" unique_id=562796421]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "E"
+
+[node name="R" type="ColorRect" parent="InputOverlay/VBoxContainer/Linha1" unique_id=297733746]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="InputOverlay/VBoxContainer/Linha1/R" unique_id=135766878]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "R"
+
+[node name="T" type="ColorRect" parent="InputOverlay/VBoxContainer/Linha1" unique_id=1044532364]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="InputOverlay/VBoxContainer/Linha1/T" unique_id=818343951]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "T"
+
+[node name="Y" type="ColorRect" parent="InputOverlay/VBoxContainer/Linha1" unique_id=1202951366]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="InputOverlay/VBoxContainer/Linha1/Y" unique_id=2112376765]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Y"
+
+[node name="U" type="ColorRect" parent="InputOverlay/VBoxContainer/Linha1" unique_id=75946482]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="InputOverlay/VBoxContainer/Linha1/U" unique_id=1547010355]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "U"
+
+[node name="I" type="ColorRect" parent="InputOverlay/VBoxContainer/Linha1" unique_id=126014556]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="InputOverlay/VBoxContainer/Linha1/I" unique_id=261504554]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "I"
+
+[node name="O" type="ColorRect" parent="InputOverlay/VBoxContainer/Linha1" unique_id=549450754]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="InputOverlay/VBoxContainer/Linha1/O" unique_id=1625050456]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "O"
+
+[node name="P" type="ColorRect" parent="InputOverlay/VBoxContainer/Linha1" unique_id=244185235]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="InputOverlay/VBoxContainer/Linha1/P" unique_id=340918907]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "P"
+
+[node name="Linha2" type="HBoxContainer" parent="InputOverlay/VBoxContainer" unique_id=570014692]
+layout_mode = 2
+alignment = 1
+
+[node name="A" type="ColorRect" parent="InputOverlay/VBoxContainer/Linha2" unique_id=1712506913]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="InputOverlay/VBoxContainer/Linha2/A" unique_id=1693973087]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "A"
+
+[node name="S" type="ColorRect" parent="InputOverlay/VBoxContainer/Linha2" unique_id=1525718362]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="InputOverlay/VBoxContainer/Linha2/S" unique_id=2026729809]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "S"
+
+[node name="D" type="ColorRect" parent="InputOverlay/VBoxContainer/Linha2" unique_id=1179295387]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="InputOverlay/VBoxContainer/Linha2/D" unique_id=1157747322]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "D"
+
+[node name="F" type="ColorRect" parent="InputOverlay/VBoxContainer/Linha2" unique_id=194711622]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="InputOverlay/VBoxContainer/Linha2/F" unique_id=595445904]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "F"
+
+[node name="G" type="ColorRect" parent="InputOverlay/VBoxContainer/Linha2" unique_id=1494259731]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="InputOverlay/VBoxContainer/Linha2/G" unique_id=1623496016]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "G"
+
+[node name="H" type="ColorRect" parent="InputOverlay/VBoxContainer/Linha2" unique_id=1284509673]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="InputOverlay/VBoxContainer/Linha2/H" unique_id=1993833966]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "H"
+
+[node name="J" type="ColorRect" parent="InputOverlay/VBoxContainer/Linha2" unique_id=2119490816]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="InputOverlay/VBoxContainer/Linha2/J" unique_id=429899769]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "J"
+
+[node name="K" type="ColorRect" parent="InputOverlay/VBoxContainer/Linha2" unique_id=2139314306]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="InputOverlay/VBoxContainer/Linha2/K" unique_id=52476179]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "K"
+
+[node name="L" type="ColorRect" parent="InputOverlay/VBoxContainer/Linha2" unique_id=188857588]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="InputOverlay/VBoxContainer/Linha2/L" unique_id=1384390098]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "L"
+
+[node name="Ç" type="ColorRect" parent="InputOverlay/VBoxContainer/Linha2" unique_id=1266376391]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="InputOverlay/VBoxContainer/Linha2/Ç" unique_id=1215822247]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Ç"
+
+[node name="Linha3" type="HBoxContainer" parent="InputOverlay/VBoxContainer" unique_id=1665442999]
+layout_mode = 2
+alignment = 1
+
+[node name="Z" type="ColorRect" parent="InputOverlay/VBoxContainer/Linha3" unique_id=1273357133]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="InputOverlay/VBoxContainer/Linha3/Z" unique_id=1621426250]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Z"
+
+[node name="X" type="ColorRect" parent="InputOverlay/VBoxContainer/Linha3" unique_id=184210497]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="InputOverlay/VBoxContainer/Linha3/X" unique_id=632848441]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "X"
+
+[node name="C" type="ColorRect" parent="InputOverlay/VBoxContainer/Linha3" unique_id=1357053788]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="InputOverlay/VBoxContainer/Linha3/C" unique_id=1271742079]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "C"
+
+[node name="V" type="ColorRect" parent="InputOverlay/VBoxContainer/Linha3" unique_id=297846176]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="InputOverlay/VBoxContainer/Linha3/V" unique_id=1557920444]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "V"
+
+[node name="B" type="ColorRect" parent="InputOverlay/VBoxContainer/Linha3" unique_id=714663492]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="InputOverlay/VBoxContainer/Linha3/B" unique_id=632696484]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "B"
+
+[node name="N" type="ColorRect" parent="InputOverlay/VBoxContainer/Linha3" unique_id=924727579]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="InputOverlay/VBoxContainer/Linha3/N" unique_id=1737448973]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "N"
+
+[node name="M" type="ColorRect" parent="InputOverlay/VBoxContainer/Linha3" unique_id=1481317609]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="InputOverlay/VBoxContainer/Linha3/M" unique_id=385603958]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "M"
+
+[node name="LinhaEspaco" type="HBoxContainer" parent="InputOverlay/VBoxContainer" unique_id=2120934067]
+layout_mode = 2
+alignment = 1
+
+[node name="ESPAÇO" type="ColorRect" parent="InputOverlay/VBoxContainer/LinhaEspaco" unique_id=1480845201]
+custom_minimum_size = Vector2(200, 40)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="InputOverlay/VBoxContainer/LinhaEspaco/ESPAÇO" unique_id=999375356]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0

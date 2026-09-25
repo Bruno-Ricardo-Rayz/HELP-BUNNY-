@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://b3jo2mgfyrlmq"
-path="res://.godot/imported/errou frase.wav-c36d3d0a7f25c1b6e7b934989e79e099.sample"
+path="res://.godot/imported/errou frase.wav-9d041baa8a748082630163ea899bee3a.sample"
 
 [deps]
 
-source_file="res://audio/errou frase.wav"
-dest_files=["res://.godot/imported/errou frase.wav-c36d3d0a7f25c1b6e7b934989e79e099.sample"]
+source_file="res://Audio/errou frase.wav"
+dest_files=["res://.godot/imported/errou frase.wav-9d041baa8a748082630163ea899bee3a.sample"]
 
 [params]
 

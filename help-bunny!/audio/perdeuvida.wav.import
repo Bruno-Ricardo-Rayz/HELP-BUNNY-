@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://djcl8kgfkr684"
-path="res://.godot/imported/perdeuvida.wav-d3861bf73ba0b9c7089130e1a4be484d.sample"
+path="res://.godot/imported/perdeuvida.wav-6ddeaef99dd9a83b5316d729a4ebb9c3.sample"
 
 [deps]
 
-source_file="res://audio/perdeuvida.wav"
-dest_files=["res://.godot/imported/perdeuvida.wav-d3861bf73ba0b9c7089130e1a4be484d.sample"]
+source_file="res://Audio/perdeuvida.wav"
+dest_files=["res://.godot/imported/perdeuvida.wav-6ddeaef99dd9a83b5316d729a4ebb9c3.sample"]
 
 [params]
 

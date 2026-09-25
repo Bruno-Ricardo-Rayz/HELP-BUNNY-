@@ -3,12 +3,12 @@
 importer="mp3"
 type="AudioStreamMP3"
 uid="uid://b68m1d56aacrs"
-path="res://.godot/imported/Galladin.mp3-f0d43f61c2c0c525710ec78755b7f127.mp3str"
+path="res://.godot/imported/Galladin.mp3-fb1f2bd4a2742c906ce01ccd2a96af2d.mp3str"
 
 [deps]
 
-source_file="res://audio/Galladin.mp3"
-dest_files=["res://.godot/imported/Galladin.mp3-f0d43f61c2c0c525710ec78755b7f127.mp3str"]
+source_file="res://Audio/Galladin.mp3"
+dest_files=["res://.godot/imported/Galladin.mp3-fb1f2bd4a2742c906ce01ccd2a96af2d.mp3str"]
 
 [params]
 

@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://cvln4k63e2y0s"
-path="res://.godot/imported/acertou frase.wav-398c07f19cacee931afd72321ff0d473.sample"
+path="res://.godot/imported/acertou frase.wav-e776d78d8b950855d992b69acf0dca30.sample"
 
 [deps]
 
-source_file="res://audio/acertou frase.wav"
-dest_files=["res://.godot/imported/acertou frase.wav-398c07f19cacee931afd72321ff0d473.sample"]
+source_file="res://Audio/acertou frase.wav"
+dest_files=["res://.godot/imported/acertou frase.wav-e776d78d8b950855d992b69acf0dca30.sample"]
 
 [params]
 

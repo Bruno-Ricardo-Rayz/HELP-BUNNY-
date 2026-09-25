@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://jmr73dnqc5kk"
-path="res://.godot/imported/recuperandovida.wav-9358cb274b38b3ce5d9679d347240a59.sample"
+path="res://.godot/imported/recuperandovida.wav-0a1b5673087de7afdb554e2786504467.sample"
 
 [deps]
 
-source_file="res://audio/recuperandovida.wav"
-dest_files=["res://.godot/imported/recuperandovida.wav-9358cb274b38b3ce5d9679d347240a59.sample"]
+source_file="res://Audio/recuperandovida.wav"
+dest_files=["res://.godot/imported/recuperandovida.wav-0a1b5673087de7afdb554e2786504467.sample"]
 
 [params]
 

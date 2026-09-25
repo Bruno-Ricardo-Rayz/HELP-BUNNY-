@@ -3,12 +3,12 @@
 importer="mp3"
 type="AudioStreamMP3"
 uid="uid://64qtc8bghvo4"
-path="res://.godot/imported/neve-1.mp3-8b4ac096a891e20cec8134d6c7107801.mp3str"
+path="res://.godot/imported/neve-1.mp3-ecc533ef5c1b94711ad400899b0524fd.mp3str"
 
 [deps]
 
-source_file="res://audio/neve-1.mp3"
-dest_files=["res://.godot/imported/neve-1.mp3-8b4ac096a891e20cec8134d6c7107801.mp3str"]
+source_file="res://Audio/neve-1.mp3"
+dest_files=["res://.godot/imported/neve-1.mp3-ecc533ef5c1b94711ad400899b0524fd.mp3str"]
 
 [params]
 

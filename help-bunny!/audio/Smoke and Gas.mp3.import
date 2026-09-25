@@ -3,12 +3,12 @@
 importer="mp3"
 type="AudioStreamMP3"
 uid="uid://gl3ubmelefjn"
-path="res://.godot/imported/Smoke and Gas.mp3-005401ecd53493809172a719f88d77ee.mp3str"
+path="res://.godot/imported/Smoke and Gas.mp3-c9d7265c85fa20ff1b5c6af205b743c3.mp3str"
 
 [deps]
 
-source_file="res://audio/Smoke and Gas.mp3"
-dest_files=["res://.godot/imported/Smoke and Gas.mp3-005401ecd53493809172a719f88d77ee.mp3str"]
+source_file="res://Audio/Smoke and Gas.mp3"
+dest_files=["res://.godot/imported/Smoke and Gas.mp3-c9d7265c85fa20ff1b5c6af205b743c3.mp3str"]
 
 [params]
 

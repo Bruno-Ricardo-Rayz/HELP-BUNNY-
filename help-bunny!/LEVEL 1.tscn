@@ -22,6 +22,7 @@
 [ext_resource type="PackedScene" uid="uid://cid2d1ac2h482" path="res://portal.tscn" id="18_etsyl"]
 [ext_resource type="PackedScene" uid="uid://cd247oou2asga" path="res://checkpoint.tscn" id="21_daxdf"]
 [ext_resource type="AudioStream" uid="uid://64qtc8bghvo4" path="res://audio/neve-1.mp3" id="22_eghdg"]
+[ext_resource type="Texture2D" uid="uid://cqmqqpj4figcl" path="res://floco de neve .png" id="23_n0gr5"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kcyr1"]
 texture = ExtResource("1_rjm81")
@@ -2215,15 +2216,28 @@ autoplay = true
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=686359507]
 z_index = 2
-position = Vector2(9751, -157)
+position = Vector2(9699, -248)
 amount = 500
+texture = ExtResource("23_n0gr5")
 emission_shape = 3
 emission_rect_extents = Vector2(10000, 300)
 direction = Vector2(-3, 0)
+spread = 0.0
 initial_velocity_min = 200.0
 initial_velocity_max = 200.0
-angular_velocity_min = 720.0
-angular_velocity_max = 720.0
-scale_amount_min = 0.0
-scale_amount_max = 8.0
+scale_amount_max = 2.0
+color = Color(0.8627451, 0.8980392, 0.9254902, 1)
+
+[node name="CPUParticles2D2" type="CPUParticles2D" parent="." unique_id=704387368]
+z_index = 2
+position = Vector2(-3642, -38)
+amount = 500
+texture = ExtResource("23_n0gr5")
+emission_shape = 3
+emission_rect_extents = Vector2(10000, 300)
+direction = Vector2(-3, 0)
+spread = 0.0
+initial_velocity_min = 200.0
+initial_velocity_max = 200.0
+scale_amount_max = 2.0
 color = Color(0.8627451, 0.8980392, 0.9254902, 1)

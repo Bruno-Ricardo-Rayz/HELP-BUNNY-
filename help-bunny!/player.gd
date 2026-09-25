@@ -12,8 +12,8 @@ extends CharacterBody2D
 
 # --- SISTEMA DE BOOST ---
 var boost_ativo: bool = false
-var chance_boost: float = 0.05  # Começa em 5%
-const CHANCE_MINIMA: float = 0.05
+var chance_boost: float = 0.03  # Começa em 3%
+const CHANCE_MINIMA: float = 0.03
 const CHANCE_MAXIMA: float = 0.15 
 var timer_boost: Timer
 var tween_piscar: Tween

@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://onyg1dha1q8d" path="res://tutorial.gd" id="1_yb1ct"]
 [ext_resource type="FontFile" uid="uid://cf5f4dvxuw0wr" path="res://BoldPixels.ttf" id="2_ehuit"]
+[ext_resource type="Texture2D" uid="uid://delb2evag0e1l" path="res://Icon.png" id="3_ehuit"]
 
 [node name="Tutorial" type="Control" unique_id=1401353233]
 layout_mode = 3
@@ -27,9 +28,10 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -1.0
-offset_right = -9.0
-offset_bottom = -9.0
+offset_left = 6.0
+offset_top = 42.0
+offset_right = -2.0
+offset_bottom = -89.0
 grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
@@ -39,15 +41,14 @@ custom_minimum_size = Vector2(1144, 0)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_ehuit")
 theme_override_font_sizes/font_size = 32
-text = "TUTORIAL
+text = "Digite as palavras corretamente antes que o tempo acabe!
 
-O HELP BUNNY! É UM JOGO DE DIGITAÇÃO NO TECLADO, ENTÃO ACERTE TECLAS CORRETAS ANTES QUE O TEMPO ACABE!
-TERÁ PROJETEIS NO JOGO QUE TERÁ UM TEMPO PARA DIGITAR E SE ERRAR PERDERAR VIDA... ENTÃO SEMPRE SE MANTENHA ATENTO....
-TOME CUIDADO ACENTOS ESTAM INCLUIDOS SE NÃO OS COLOCAR NO LUGAR CERTO SUA PALAVRA SERÁ DADA COMO ERRADA...
-VOCÊ TERÁ 3 VIDAS PODENDO RECUPERAR ELA CASO ACERTE OS PROJETEIS
-CADA FASE TERA SOMENTE UM CHECKPOINT
+⚠️ Cuidado: erros fazem você perder tempo.
+⌨️ Use as teclas indicadas e digite cada palavra no lugar correto.
+❤️ Você tem 3 vidas.
+🏁 Cada fase funciona como um checkpoint.
 
-BOA SORTE E APROVEITE O NOSSO JOGO! :)"
+BOA SORTE E BOM JOGO!"
 horizontal_alignment = 1
 autowrap_mode = 3
 
@@ -67,3 +68,19 @@ grow_vertical = 0
 theme_override_fonts/font = ExtResource("2_ehuit")
 theme_override_font_sizes/font_size = 25
 text = "APERTE QUALQUER TECLA PARA CONTINUAR"
+
+[node name="IconeIA" type="TextureRect" parent="." unique_id=1554446395]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.91400003
+anchor_right = 1.0
+anchor_bottom = 0.15300001
+offset_left = -193.92798
+offset_top = 10.0
+offset_right = 181.0
+offset_bottom = 16.855995
+grow_horizontal = 0
+grow_vertical = 0
+mouse_filter = 2
+texture = ExtResource("3_ehuit")
+expand_mode = 1

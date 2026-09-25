@@ -3,12 +3,12 @@
 importer="mp3"
 type="AudioStreamMP3"
 uid="uid://x7jd3n0foqew"
-path="res://.godot/imported/sakura 2.mp3-231f43095f380664e810073d2227f512.mp3str"
+path="res://.godot/imported/sakura 2.mp3-146150bbecde0513caee53d32f4e7cef.mp3str"
 
 [deps]
 
-source_file="res://Audio/sakura 2.mp3"
-dest_files=["res://.godot/imported/sakura 2.mp3-231f43095f380664e810073d2227f512.mp3str"]
+source_file="res://audio/sakura 2.mp3"
+dest_files=["res://.godot/imported/sakura 2.mp3-146150bbecde0513caee53d32f4e7cef.mp3str"]
 
 [params]
 

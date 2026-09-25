@@ -3,12 +3,12 @@
 importer="mp3"
 type="AudioStreamMP3"
 uid="uid://cg1nu65qdlclp"
-path="res://.godot/imported/pasto2.mp3-146478485f6f230f0eb873b024446df5.mp3str"
+path="res://.godot/imported/pasto2.mp3-3f160c1a1055baa038a756494059bb12.mp3str"
 
 [deps]
 
-source_file="res://Audio/pasto2.mp3"
-dest_files=["res://.godot/imported/pasto2.mp3-146478485f6f230f0eb873b024446df5.mp3str"]
+source_file="res://audio/pasto2.mp3"
+dest_files=["res://.godot/imported/pasto2.mp3-3f160c1a1055baa038a756494059bb12.mp3str"]
 
 [params]
 

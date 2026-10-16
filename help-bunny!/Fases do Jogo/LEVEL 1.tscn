@@ -689,6 +689,7 @@ tile_set = SubResource("TileSet_xvf33")
 position = Vector2(55, 230.00003)
 
 [node name="GPUParticles2D2" type="GPUParticles2D" parent="Player" unique_id=140518836]
+z_index = -1
 position = Vector2(115.5, 7.166664)
 scale = Vector2(0.16666667, 0.16666667)
 amount = 200

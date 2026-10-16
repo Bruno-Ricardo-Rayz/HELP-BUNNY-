@@ -14,7 +14,7 @@ extends CharacterBody2D
 var boost_ativo: bool = false
 var chance_boost: float = 0.03  # Começa em 3%
 const CHANCE_MINIMA: float = 0.03
-const CHANCE_MAXIMA: float = 0.15 
+const CHANCE_MAXIMA: float = 0.10 
 var timer_boost: Timer
 var tween_piscar: Tween
 var boost_recupera_vida: bool = true 

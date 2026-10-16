@@ -8,8 +8,8 @@
 [ext_resource type="Texture2D" uid="uid://cpy7u3ahjhgxc" path="res://Artes e sprites/carroticon.png" id="6_0pvv6"]
 [ext_resource type="Texture2D" uid="uid://by0t2s3bbceox" path="res://Artes e sprites/logo do game.png" id="7_41o28"]
 [ext_resource type="Texture2D" uid="uid://delb2evag0e1l" path="res://Artes e sprites/Icon.png" id="8_3bkib"]
-[ext_resource type="AudioStream" uid="uid://curjr74l8rc3l" path="res://Audio/inicio.wav" id="9_dtx6n"]
-[ext_resource type="AudioStream" uid="uid://beihq0c5eg4gv" path="res://Audio/creditos.wav" id="10_htubo"]
+[ext_resource type="AudioStream" uid="uid://curjr74l8rc3l" path="res://audio/inicio.wav" id="9_dtx6n"]
+[ext_resource type="AudioStream" uid="uid://beihq0c5eg4gv" path="res://audio/creditos.wav" id="10_htubo"]
 
 [node name="Menu" type="Control" unique_id=1802964064]
 layout_mode = 3

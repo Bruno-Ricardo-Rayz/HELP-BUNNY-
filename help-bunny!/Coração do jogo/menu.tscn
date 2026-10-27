@@ -92,7 +92,7 @@ layout_mode = 2
 theme_override_constants/outline_size = 10
 theme_override_fonts/font = ExtResource("5_ed3sx")
 theme_override_font_sizes/font_size = 32
-text = "𝗖𝝝𝝥𝝩𝝞𝝥𝗨𝝙𝝘"
+text = "CONTINUAR"
 flat = true
 
 [node name="BtnNovoJogo" type="Button" parent="UI/VBoxContainer" unique_id=547285263]
@@ -100,7 +100,7 @@ layout_mode = 2
 theme_override_constants/outline_size = 10
 theme_override_fonts/font = ExtResource("5_ed3sx")
 theme_override_font_sizes/font_size = 32
-text = "𝝥𝝝𝝯𝝝 𝗝𝝝𝗚𝝝"
+text = "NOVO JOGO"
 flat = true
 
 [node name="BtnCreditos" type="Button" parent="UI/VBoxContainer" unique_id=931107332]
@@ -108,7 +108,7 @@ layout_mode = 2
 theme_override_constants/outline_size = 10
 theme_override_fonts/font = ExtResource("5_ed3sx")
 theme_override_font_sizes/font_size = 32
-text = "𝗖𝝘𝝨𝗗𝝞𝝩𝝝𝗦 "
+text = "CRÉDITOS "
 flat = true
 
 [node name="BtnSair" type="Button" parent="UI/VBoxContainer" unique_id=936993813]
@@ -116,7 +116,7 @@ layout_mode = 2
 theme_override_constants/outline_size = 10
 theme_override_fonts/font = ExtResource("5_ed3sx")
 theme_override_font_sizes/font_size = 32
-text = "𝗦𝝙𝝞𝝘"
+text = "SAIR"
 flat = true
 
 [node name="CenouraIcone" type="TextureRect" parent="UI" unique_id=1554791740]
